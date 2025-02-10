@@ -2,7 +2,7 @@
 source path.sh
 set -e
 
-log_root="logs"
+log_root="checkpoints"
 # .lst save the wav path.
 input_training_file="train.lst" 
 input_validation_file="valid.lst"

@@ -413,12 +413,12 @@ def train(rank, a, h):
         scheduler_g.step()
         scheduler_d.step()
     
-    destroy_process_group()  # Cleanup for distributed processing
+    # destroy_process_group()  # Cleanup for distributed processing; Assertion Error: asser pg in not None
 
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--checkpoint_path', default='checkpoints')
+    parser.add_argument('--checkpoint_path', default='logs')
     parser.add_argument('--input_mels_dir', default=None)
     parser.add_argument('--input_training_file', required=True)
     parser.add_argument('--input_validation_file', required=True)
