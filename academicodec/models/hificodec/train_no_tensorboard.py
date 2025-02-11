@@ -3,6 +3,7 @@ warnings.simplefilter(action='ignore', category=FutureWarning)
 import itertools
 import os
 import time
+from datetime import datetime
 import argparse
 import json
 import torch
@@ -59,7 +60,7 @@ def train(rank, a, h):
 
     torch.cuda.manual_seed(h.seed)
     device = torch.device(f'cuda:{rank}')
-    print(f"### Using device: {device}")
+    print(f"Using device: {device}")
 
     # Initialize model components
     encoder = Encoder(h).to(device)
@@ -74,10 +75,10 @@ def train(rank, a, h):
         # print(quantizer)
         # print(generator)
         os.makedirs(a.checkpoint_path, exist_ok=True)
-        print(f"### Checkpoints will be saved in: {a.checkpoint_path}")
+        print(f"Checkpoints will be saved in: {a.checkpoint_path}")
 
-    if os.path.isdir(a.checkpoint_path): #for finetune?
-        cp_g = scan_checkpoint(a.checkpoint_path, 'g_')
+    if os.path.isdir(a.checkpoint_path):
+        cp_g = scan_checkpoint(a.checkpoint_path, 'g_') # for inference
         cp_do = scan_checkpoint(a.checkpoint_path, 'do_')
 
     steps = 0
@@ -157,7 +158,7 @@ def train(rank, a, h):
         # drop_last=True,
         drop_last=False)
 
-    print(f"### Training batches: {len(train_loader)}")
+    print(f"Training batches: {len(train_loader)}")
     
     # Valid set
     if rank == 0:
@@ -211,7 +212,7 @@ def train(rank, a, h):
             c = encoder(y)
             q, loss_q, c = quantizer(c)
             y_g_hat = generator(q)
-            print("### Forward pass") #printed
+            print("Forward pass") #printed
 
             # == COMPUTE SPECTROGRAM == #
             # Mel-spectrograms are computed for both real and generated audio
@@ -241,7 +242,7 @@ def train(rank, a, h):
             # print("y.shape: ", y.shape)
             # print("y_g_hat.shape: ", y_g_hat.shape)
 
-            print("### Compute spectrogram") #printed
+            print("Compute spectrogram") #printed
 
             # == COMPUTE DISCRIMINATOR LOSS == #
             # Three different discriminators (mpd, msd, mstftd) evaluate the real vs. fake audio.
@@ -263,14 +264,14 @@ def train(rank, a, h):
             #Computes discriminator losses for each (loss_disc_all).
             loss_disc_all = loss_disc_s + loss_disc_f + loss_disc_stft
 
-            print("### Compute discriminator loss")
+            print("Compute discriminator loss")
 
             # == UPDATE DISCRIMINATOR == #
             optim_d.zero_grad() #clears old gradients before computing new ones during backpropagation. 
             loss_disc_all.backward() #backprop
             optim_d.step() #updates discriminator weights.
 
-            print("### Update discriminator")
+            print("Update discriminator")
 
             # == COMPUTE GENERATOR LOSS == #
             # L1 Mel-Spectrogram Loss: loss_mel → Perceptual loss (difference between real & fake spectrograms).
@@ -298,14 +299,14 @@ def train(rank, a, h):
             loss_gen_stft, losses_gen_stft = generator_loss(y_stftd_hat_g)
             loss_gen_all = loss_gen_s + loss_gen_f + loss_gen_stft + loss_fm_s + loss_fm_f + loss_fm_stft + loss_mel + loss_q * 10
             
-            print("### Compute generator loss")
+            print("Compute generator loss")
             
             # == UPDATE GENERATOR == #
             optim_g.zero_grad()
             loss_gen_all.backward() # backprop
             optim_g.step() # updates generator weights.
 
-            print("### Update generator")
+            print("Update generator")
 
             # Logging
             if rank == 0:
@@ -321,8 +322,9 @@ def train(rank, a, h):
 
                 # checkpointing: Saves model checkpoints every checkpoint_interval steps.
                 if steps % a.checkpoint_interval == 0 and steps != 0:
-                    checkpoint_path = "{}/g_{:08d}".format(a.checkpoint_path,
-                                                           steps)
+                    checkpoint_path = "{}/g_{:08d}-{}".format(a.checkpoint_path, 
+                                                            steps, 
+                                                            datetime.now().strftime("%Y%m%d_%H%M%S"))
                     save_checkpoint(
                         checkpoint_path, {
                             'generator': (generator.module if h.num_gpus > 1
@@ -333,8 +335,13 @@ def train(rank, a, h):
                                           else quantizer).state_dict()
                         },
                         num_ckpt_keep=a.num_ckpt_keep)
-                    checkpoint_path = "{}/do_{:08d}".format(a.checkpoint_path,
-                                                            steps)
+                    # checkpoint_path = "{}/do_{}_{:08d}".format(a.checkpoint_path,
+                    #                                         steps)
+                    checkpoint_path = "{}/do_{:08d}-{}".format(
+                                                            a.checkpoint_path, 
+                                                            steps, 
+                                                            datetime.now().strftime("%Y%m%d_%H%M%S"))  # Format timestamp
+
                     save_checkpoint(
                         checkpoint_path, {
                             'mpd': (mpd.module
@@ -353,7 +360,7 @@ def train(rank, a, h):
                             epoch
                         },
                         num_ckpt_keep=a.num_ckpt_keep)
-                    print("### checkpoint saved")
+                    print("checkpoint saved")
 
             # Validation
                 if steps % a.validation_interval == 0 and steps != 0:
@@ -412,6 +419,10 @@ def train(rank, a, h):
         # Gradually reduces learning rate over time.
         scheduler_g.step()
         scheduler_d.step()
+
+        if rank == 0:
+            print('Time taken for epoch {} is {} sec\n'.format(
+                epoch + 1, int(time.time() - start)))
     
     # destroy_process_group()  # Cleanup for distributed processing; Assertion Error: asser pg in not None
 
