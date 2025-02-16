@@ -1,0 +1,396 @@
+Initializing Training Process..
+Number of GPU : 2
+Batch size per GPU : 16
+Total training samples: 354780
+Total estimated samples: 177376
+Encoder(
+  (conv_pre): Conv1d(1, 32, kernel_size=(7,), stride=(1,), padding=(3,))
+  (normalize): ModuleList(
+    (0-2): 3 x GroupNorm(4, 64, eps=1e-06, affine=True)
+    (3-5): 3 x GroupNorm(8, 128, eps=1e-06, affine=True)
+    (6-8): 3 x GroupNorm(16, 256, eps=1e-06, affine=True)
+    (9-11): 3 x GroupNorm(32, 512, eps=1e-06, affine=True)
+  )
+  (ups): ModuleList(
+    (0): Conv1d(32, 64, kernel_size=(4,), stride=(2,), padding=(1,))
+    (1): Conv1d(64, 128, kernel_size=(7,), stride=(3,), padding=(2,))
+    (2): Conv1d(128, 256, kernel_size=(11,), stride=(5,), padding=(3,))
+    (3): Conv1d(256, 512, kernel_size=(16,), stride=(8,), padding=(4,))
+  )
+  (resblocks): ModuleList(
+    (0): ResBlock1(
+      (convs1): ModuleList(
+        (0): Conv1d(64, 64, kernel_size=(11,), stride=(1,), padding=(5,))
+        (1): Conv1d(64, 64, kernel_size=(11,), stride=(1,), padding=(15,), dilation=(3,))
+        (2): Conv1d(64, 64, kernel_size=(11,), stride=(1,), padding=(25,), dilation=(5,))
+      )
+      (convs2): ModuleList(
+        (0-2): 3 x Conv1d(64, 64, kernel_size=(11,), stride=(1,), padding=(5,))
+      )
+    )
+    (1): ResBlock1(
+      (convs1): ModuleList(
+        (0): Conv1d(64, 64, kernel_size=(7,), stride=(1,), padding=(3,))
+        (1): Conv1d(64, 64, kernel_size=(7,), stride=(1,), padding=(9,), dilation=(3,))
+        (2): Conv1d(64, 64, kernel_size=(7,), stride=(1,), padding=(15,), dilation=(5,))
+      )
+      (convs2): ModuleList(
+        (0-2): 3 x Conv1d(64, 64, kernel_size=(7,), stride=(1,), padding=(3,))
+      )
+    )
+    (2): ResBlock1(
+      (convs1): ModuleList(
+        (0): Conv1d(64, 64, kernel_size=(3,), stride=(1,), padding=(1,))
+        (1): Conv1d(64, 64, kernel_size=(3,), stride=(1,), padding=(3,), dilation=(3,))
+        (2): Conv1d(64, 64, kernel_size=(3,), stride=(1,), padding=(5,), dilation=(5,))
+      )
+      (convs2): ModuleList(
+        (0-2): 3 x Conv1d(64, 64, kernel_size=(3,), stride=(1,), padding=(1,))
+      )
+    )
+    (3): ResBlock1(
+      (convs1): ModuleList(
+        (0): Conv1d(128, 128, kernel_size=(11,), stride=(1,), padding=(5,))
+        (1): Conv1d(128, 128, kernel_size=(11,), stride=(1,), padding=(15,), dilation=(3,))
+        (2): Conv1d(128, 128, kernel_size=(11,), stride=(1,), padding=(25,), dilation=(5,))
+      )
+      (convs2): ModuleList(
+        (0-2): 3 x Conv1d(128, 128, kernel_size=(11,), stride=(1,), padding=(5,))
+      )
+    )
+    (4): ResBlock1(
+      (convs1): ModuleList(
+        (0): Conv1d(128, 128, kernel_size=(7,), stride=(1,), padding=(3,))
+        (1): Conv1d(128, 128, kernel_size=(7,), stride=(1,), padding=(9,), dilation=(3,))
+        (2): Conv1d(128, 128, kernel_size=(7,), stride=(1,), padding=(15,), dilation=(5,))
+      )
+      (convs2): ModuleList(
+        (0-2): 3 x Conv1d(128, 128, kernel_size=(7,), stride=(1,), padding=(3,))
+      )
+    )
+    (5): ResBlock1(
+      (convs1): ModuleList(
+        (0): Conv1d(128, 128, kernel_size=(3,), stride=(1,), padding=(1,))
+        (1): Conv1d(128, 128, kernel_size=(3,), stride=(1,), padding=(3,), dilation=(3,))
+        (2): Conv1d(128, 128, kernel_size=(3,), stride=(1,), padding=(5,), dilation=(5,))
+      )
+      (convs2): ModuleList(
+        (0-2): 3 x Conv1d(128, 128, kernel_size=(3,), stride=(1,), padding=(1,))
+      )
+    )
+    (6): ResBlock1(
+      (convs1): ModuleList(
+        (0): Conv1d(256, 256, kernel_size=(11,), stride=(1,), padding=(5,))
+        (1): Conv1d(256, 256, kernel_size=(11,), stride=(1,), padding=(15,), dilation=(3,))
+        (2): Conv1d(256, 256, kernel_size=(11,), stride=(1,), padding=(25,), dilation=(5,))
+      )
+      (convs2): ModuleList(
+        (0-2): 3 x Conv1d(256, 256, kernel_size=(11,), stride=(1,), padding=(5,))
+      )
+    )
+    (7): ResBlock1(
+      (convs1): ModuleList(
+        (0): Conv1d(256, 256, kernel_size=(7,), stride=(1,), padding=(3,))
+        (1): Conv1d(256, 256, kernel_size=(7,), stride=(1,), padding=(9,), dilation=(3,))
+        (2): Conv1d(256, 256, kernel_size=(7,), stride=(1,), padding=(15,), dilation=(5,))
+      )
+      (convs2): ModuleList(
+        (0-2): 3 x Conv1d(256, 256, kernel_size=(7,), stride=(1,), padding=(3,))
+      )
+    )
+    (8): ResBlock1(
+      (convs1): ModuleList(
+        (0): Conv1d(256, 256, kernel_size=(3,), stride=(1,), padding=(1,))
+        (1): Conv1d(256, 256, kernel_size=(3,), stride=(1,), padding=(3,), dilation=(3,))
+        (2): Conv1d(256, 256, kernel_size=(3,), stride=(1,), padding=(5,), dilation=(5,))
+      )
+      (convs2): ModuleList(
+        (0-2): 3 x Conv1d(256, 256, kernel_size=(3,), stride=(1,), padding=(1,))
+      )
+    )
+    (9): ResBlock1(
+      (convs1): ModuleList(
+        (0): Conv1d(512, 512, kernel_size=(11,), stride=(1,), padding=(5,))
+        (1): Conv1d(512, 512, kernel_size=(11,), stride=(1,), padding=(15,), dilation=(3,))
+        (2): Conv1d(512, 512, kernel_size=(11,), stride=(1,), padding=(25,), dilation=(5,))
+      )
+      (convs2): ModuleList(
+        (0-2): 3 x Conv1d(512, 512, kernel_size=(11,), stride=(1,), padding=(5,))
+      )
+    )
+    (10): ResBlock1(
+      (convs1): ModuleList(
+        (0): Conv1d(512, 512, kernel_size=(7,), stride=(1,), padding=(3,))
+        (1): Conv1d(512, 512, kernel_size=(7,), stride=(1,), padding=(9,), dilation=(3,))
+        (2): Conv1d(512, 512, kernel_size=(7,), stride=(1,), padding=(15,), dilation=(5,))
+      )
+      (convs2): ModuleList(
+        (0-2): 3 x Conv1d(512, 512, kernel_size=(7,), stride=(1,), padding=(3,))
+      )
+    )
+    (11): ResBlock1(
+      (convs1): ModuleList(
+        (0): Conv1d(512, 512, kernel_size=(3,), stride=(1,), padding=(1,))
+        (1): Conv1d(512, 512, kernel_size=(3,), stride=(1,), padding=(3,), dilation=(3,))
+        (2): Conv1d(512, 512, kernel_size=(3,), stride=(1,), padding=(5,), dilation=(5,))
+      )
+      (convs2): ModuleList(
+        (0-2): 3 x Conv1d(512, 512, kernel_size=(3,), stride=(1,), padding=(1,))
+      )
+    )
+  )
+  (conv_post): Conv1d(512, 512, kernel_size=(3,), stride=(1,), padding=(1,))
+)
+Quantizer(
+  (quantizer_modules): ModuleList(
+    (0-1): 2 x Quantizer_module(
+      (embedding): Embedding(1024, 256)
+    )
+  )
+  (quantizer_modules2): ModuleList(
+    (0-1): 2 x Quantizer_module(
+      (embedding): Embedding(1024, 256)
+    )
+  )
+)
+Generator(
+  (conv_pre): Conv1d(512, 512, kernel_size=(7,), stride=(1,), padding=(3,))
+  (ups): ModuleList(
+    (0): ConvTranspose1d(512, 256, kernel_size=(16,), stride=(8,), padding=(4,))
+    (1): ConvTranspose1d(256, 128, kernel_size=(11,), stride=(5,), padding=(3,))
+    (2): ConvTranspose1d(128, 64, kernel_size=(7,), stride=(3,), padding=(2,))
+    (3): ConvTranspose1d(64, 32, kernel_size=(4,), stride=(2,), padding=(1,))
+  )
+  (resblocks): ModuleList(
+    (0): ResBlock1(
+      (convs1): ModuleList(
+        (0): Conv1d(256, 256, kernel_size=(3,), stride=(1,), padding=(1,))
+        (1): Conv1d(256, 256, kernel_size=(3,), stride=(1,), padding=(3,), dilation=(3,))
+        (2): Conv1d(256, 256, kernel_size=(3,), stride=(1,), padding=(5,), dilation=(5,))
+      )
+      (convs2): ModuleList(
+        (0-2): 3 x Conv1d(256, 256, kernel_size=(3,), stride=(1,), padding=(1,))
+      )
+    )
+    (1): ResBlock1(
+      (convs1): ModuleList(
+        (0): Conv1d(256, 256, kernel_size=(7,), stride=(1,), padding=(3,))
+        (1): Conv1d(256, 256, kernel_size=(7,), stride=(1,), padding=(9,), dilation=(3,))
+        (2): Conv1d(256, 256, kernel_size=(7,), stride=(1,), padding=(15,), dilation=(5,))
+      )
+      (convs2): ModuleList(
+        (0-2): 3 x Conv1d(256, 256, kernel_size=(7,), stride=(1,), padding=(3,))
+      )
+    )
+    (2): ResBlock1(
+      (convs1): ModuleList(
+        (0): Conv1d(256, 256, kernel_size=(11,), stride=(1,), padding=(5,))
+        (1): Conv1d(256, 256, kernel_size=(11,), stride=(1,), padding=(15,), dilation=(3,))
+        (2): Conv1d(256, 256, kernel_size=(11,), stride=(1,), padding=(25,), dilation=(5,))
+      )
+      (convs2): ModuleList(
+        (0-2): 3 x Conv1d(256, 256, kernel_size=(11,), stride=(1,), padding=(5,))
+      )
+    )
+    (3): ResBlock1(
+      (convs1): ModuleList(
+        (0): Conv1d(128, 128, kernel_size=(3,), stride=(1,), padding=(1,))
+        (1): Conv1d(128, 128, kernel_size=(3,), stride=(1,), padding=(3,), dilation=(3,))
+        (2): Conv1d(128, 128, kernel_size=(3,), stride=(1,), padding=(5,), dilation=(5,))
+      )
+      (convs2): ModuleList(
+        (0-2): 3 x Conv1d(128, 128, kernel_size=(3,), stride=(1,), padding=(1,))
+      )
+    )
+    (4): ResBlock1(
+      (convs1): ModuleList(
+        (0): Conv1d(128, 128, kernel_size=(7,), stride=(1,), padding=(3,))
+        (1): Conv1d(128, 128, kernel_size=(7,), stride=(1,), padding=(9,), dilation=(3,))
+        (2): Conv1d(128, 128, kernel_size=(7,), stride=(1,), padding=(15,), dilation=(5,))
+      )
+      (convs2): ModuleList(
+        (0-2): 3 x Conv1d(128, 128, kernel_size=(7,), stride=(1,), padding=(3,))
+      )
+    )
+    (5): ResBlock1(
+      (convs1): ModuleList(
+        (0): Conv1d(128, 128, kernel_size=(11,), stride=(1,), padding=(5,))
+        (1): Conv1d(128, 128, kernel_size=(11,), stride=(1,), padding=(15,), dilation=(3,))
+        (2): Conv1d(128, 128, kernel_size=(11,), stride=(1,), padding=(25,), dilation=(5,))
+      )
+      (convs2): ModuleList(
+        (0-2): 3 x Conv1d(128, 128, kernel_size=(11,), stride=(1,), padding=(5,))
+      )
+    )
+    (6): ResBlock1(
+      (convs1): ModuleList(
+        (0): Conv1d(64, 64, kernel_size=(3,), stride=(1,), padding=(1,))
+        (1): Conv1d(64, 64, kernel_size=(3,), stride=(1,), padding=(3,), dilation=(3,))
+        (2): Conv1d(64, 64, kernel_size=(3,), stride=(1,), padding=(5,), dilation=(5,))
+      )
+      (convs2): ModuleList(
+        (0-2): 3 x Conv1d(64, 64, kernel_size=(3,), stride=(1,), padding=(1,))
+      )
+    )
+    (7): ResBlock1(
+      (convs1): ModuleList(
+        (0): Conv1d(64, 64, kernel_size=(7,), stride=(1,), padding=(3,))
+        (1): Conv1d(64, 64, kernel_size=(7,), stride=(1,), padding=(9,), dilation=(3,))
+        (2): Conv1d(64, 64, kernel_size=(7,), stride=(1,), padding=(15,), dilation=(5,))
+      )
+      (convs2): ModuleList(
+        (0-2): 3 x Conv1d(64, 64, kernel_size=(7,), stride=(1,), padding=(3,))
+      )
+    )
+    (8): ResBlock1(
+      (convs1): ModuleList(
+        (0): Conv1d(64, 64, kernel_size=(11,), stride=(1,), padding=(5,))
+        (1): Conv1d(64, 64, kernel_size=(11,), stride=(1,), padding=(15,), dilation=(3,))
+        (2): Conv1d(64, 64, kernel_size=(11,), stride=(1,), padding=(25,), dilation=(5,))
+      )
+      (convs2): ModuleList(
+        (0-2): 3 x Conv1d(64, 64, kernel_size=(11,), stride=(1,), padding=(5,))
+      )
+    )
+    (9): ResBlock1(
+      (convs1): ModuleList(
+        (0): Conv1d(32, 32, kernel_size=(3,), stride=(1,), padding=(1,))
+        (1): Conv1d(32, 32, kernel_size=(3,), stride=(1,), padding=(3,), dilation=(3,))
+        (2): Conv1d(32, 32, kernel_size=(3,), stride=(1,), padding=(5,), dilation=(5,))
+      )
+      (convs2): ModuleList(
+        (0-2): 3 x Conv1d(32, 32, kernel_size=(3,), stride=(1,), padding=(1,))
+      )
+    )
+    (10): ResBlock1(
+      (convs1): ModuleList(
+        (0): Conv1d(32, 32, kernel_size=(7,), stride=(1,), padding=(3,))
+        (1): Conv1d(32, 32, kernel_size=(7,), stride=(1,), padding=(9,), dilation=(3,))
+        (2): Conv1d(32, 32, kernel_size=(7,), stride=(1,), padding=(15,), dilation=(5,))
+      )
+      (convs2): ModuleList(
+        (0-2): 3 x Conv1d(32, 32, kernel_size=(7,), stride=(1,), padding=(3,))
+      )
+    )
+    (11): ResBlock1(
+      (convs1): ModuleList(
+        (0): Conv1d(32, 32, kernel_size=(11,), stride=(1,), padding=(5,))
+        (1): Conv1d(32, 32, kernel_size=(11,), stride=(1,), padding=(15,), dilation=(3,))
+        (2): Conv1d(32, 32, kernel_size=(11,), stride=(1,), padding=(25,), dilation=(5,))
+      )
+      (convs2): ModuleList(
+        (0-2): 3 x Conv1d(32, 32, kernel_size=(11,), stride=(1,), padding=(5,))
+      )
+    )
+  )
+  (conv_post): Conv1d(32, 1, kernel_size=(7,), stride=(1,), padding=(3,))
+)
+checkpoints directory :  checkpoints/test_kagayaki/config_24k_240d.json
+Total training samples: 354780
+Total estimated samples: 177376
+Epoch: 1
+Steps : 0, Gen Loss Total : 223.738, Loss Q : 0.010, Mel-Spec. Error : 4.545, s/b : 10.446
+Steps : 10, Gen Loss Total : 76.464, Loss Q : 0.218, Mel-Spec. Error : 1.438, s/b : 0.760
+Steps : 20, Gen Loss Total : 75.765, Loss Q : 0.412, Mel-Spec. Error : 1.420, s/b : 0.760
+Steps : 30, Gen Loss Total : 85.559, Loss Q : 0.709, Mel-Spec. Error : 1.560, s/b : 0.771
+Steps : 40, Gen Loss Total : 88.002, Loss Q : 0.658, Mel-Spec. Error : 1.582, s/b : 0.754
+Steps : 50, Gen Loss Total : 100.098, Loss Q : 1.898, Mel-Spec. Error : 1.557, s/b : 0.766
+Steps : 60, Gen Loss Total : 106.044, Loss Q : 3.247, Mel-Spec. Error : 1.405, s/b : 0.755
+Steps : 70, Gen Loss Total : 125.502, Loss Q : 5.124, Mel-Spec. Error : 1.407, s/b : 0.758
+Steps : 80, Gen Loss Total : 138.460, Loss Q : 6.619, Mel-Spec. Error : 1.402, s/b : 0.752
+Steps : 90, Gen Loss Total : 152.028, Loss Q : 7.718, Mel-Spec. Error : 1.471, s/b : 0.768
+Steps : 100, Gen Loss Total : 168.356, Loss Q : 9.646, Mel-Spec. Error : 1.361, s/b : 0.754
+Steps : 110, Gen Loss Total : 195.893, Loss Q : 12.016, Mel-Spec. Error : 1.442, s/b : 0.753
+Steps : 120, Gen Loss Total : 169.462, Loss Q : 10.591, Mel-Spec. Error : 1.229, s/b : 0.770
+Steps : 130, Gen Loss Total : 177.486, Loss Q : 10.983, Mel-Spec. Error : 1.266, s/b : 0.768
+Steps : 140, Gen Loss Total : 152.189, Loss Q : 9.078, Mel-Spec. Error : 1.178, s/b : 0.758
+Steps : 150, Gen Loss Total : 84.453, Loss Q : 1.827, Mel-Spec. Error : 1.263, s/b : 0.757
+Steps : 160, Gen Loss Total : 186.601, Loss Q : 11.468, Mel-Spec. Error : 1.376, s/b : 0.761
+Steps : 170, Gen Loss Total : 155.589, Loss Q : 8.733, Mel-Spec. Error : 1.328, s/b : 0.754
+Steps : 180, Gen Loss Total : 240.273, Loss Q : 16.841, Mel-Spec. Error : 1.390, s/b : 0.760
+Steps : 190, Gen Loss Total : 262.346, Loss Q : 18.927, Mel-Spec. Error : 1.355, s/b : 0.761
+Steps : 200, Gen Loss Total : 266.984, Loss Q : 20.036, Mel-Spec. Error : 1.232, s/b : 0.753
+Steps : 210, Gen Loss Total : 198.075, Loss Q : 11.742, Mel-Spec. Error : 1.547, s/b : 0.749
+Steps : 220, Gen Loss Total : 117.057, Loss Q : 4.787, Mel-Spec. Error : 1.308, s/b : 0.763
+Steps : 230, Gen Loss Total : 173.168, Loss Q : 9.340, Mel-Spec. Error : 1.515, s/b : 0.770
+Steps : 240, Gen Loss Total : 328.532, Loss Q : 26.049, Mel-Spec. Error : 1.287, s/b : 0.762
+Steps : 250, Gen Loss Total : 216.087, Loss Q : 14.615, Mel-Spec. Error : 1.293, s/b : 0.746
+Steps : 260, Gen Loss Total : 133.123, Loss Q : 7.080, Mel-Spec. Error : 1.181, s/b : 0.762
+Steps : 270, Gen Loss Total : 341.118, Loss Q : 26.623, Mel-Spec. Error : 1.430, s/b : 0.763
+Steps : 280, Gen Loss Total : 241.959, Loss Q : 17.306, Mel-Spec. Error : 1.283, s/b : 0.769
+Steps : 290, Gen Loss Total : 182.261, Loss Q : 11.585, Mel-Spec. Error : 1.249, s/b : 0.764
+Steps : 300, Gen Loss Total : 272.081, Loss Q : 20.101, Mel-Spec. Error : 1.362, s/b : 0.748
+Steps : 310, Gen Loss Total : 251.826, Loss Q : 18.087, Mel-Spec. Error : 1.352, s/b : 0.758
+Steps : 320, Gen Loss Total : 242.639, Loss Q : 17.576, Mel-Spec. Error : 1.248, s/b : 0.762
+Steps : 330, Gen Loss Total : 294.268, Loss Q : 22.003, Mel-Spec. Error : 1.397, s/b : 0.754
+Steps : 340, Gen Loss Total : 351.126, Loss Q : 28.514, Mel-Spec. Error : 1.244, s/b : 0.763
+Steps : 350, Gen Loss Total : 269.460, Loss Q : 19.989, Mel-Spec. Error : 1.305, s/b : 0.751
+Steps : 360, Gen Loss Total : 269.571, Loss Q : 19.897, Mel-Spec. Error : 1.343, s/b : 0.761
+Steps : 370, Gen Loss Total : 148.325, Loss Q : 7.994, Mel-Spec. Error : 1.268, s/b : 0.760
+Steps : 380, Gen Loss Total : 111.416, Loss Q : 4.431, Mel-Spec. Error : 1.255, s/b : 0.765
+Steps : 390, Gen Loss Total : 169.236, Loss Q : 8.799, Mel-Spec. Error : 1.560, s/b : 0.765
+Steps : 400, Gen Loss Total : 384.658, Loss Q : 31.429, Mel-Spec. Error : 1.335, s/b : 0.762
+Steps : 410, Gen Loss Total : 157.004, Loss Q : 8.925, Mel-Spec. Error : 1.283, s/b : 0.761
+Steps : 420, Gen Loss Total : 113.479, Loss Q : 4.084, Mel-Spec. Error : 1.374, s/b : 0.770
+Steps : 430, Gen Loss Total : 134.194, Loss Q : 6.037, Mel-Spec. Error : 1.388, s/b : 0.758
+Steps : 440, Gen Loss Total : 115.408, Loss Q : 5.126, Mel-Spec. Error : 1.211, s/b : 0.753
+Steps : 450, Gen Loss Total : 151.048, Loss Q : 8.620, Mel-Spec. Error : 1.203, s/b : 0.765
+Steps : 460, Gen Loss Total : 194.702, Loss Q : 13.110, Mel-Spec. Error : 1.166, s/b : 0.760
+Steps : 470, Gen Loss Total : 129.726, Loss Q : 5.633, Mel-Spec. Error : 1.389, s/b : 0.758
+Steps : 480, Gen Loss Total : 214.077, Loss Q : 14.616, Mel-Spec. Error : 1.272, s/b : 0.761
+Steps : 490, Gen Loss Total : 372.433, Loss Q : 30.267, Mel-Spec. Error : 1.313, s/b : 0.763
+Steps : 500, Gen Loss Total : 420.034, Loss Q : 35.525, Mel-Spec. Error : 1.175, s/b : 0.758
+Steps : 510, Gen Loss Total : 78.849, Loss Q : 0.407, Mel-Spec. Error : 1.409, s/b : 0.760
+Steps : 520, Gen Loss Total : 218.236, Loss Q : 15.295, Mel-Spec. Error : 1.205, s/b : 0.770
+Steps : 530, Gen Loss Total : 98.608, Loss Q : 2.898, Mel-Spec. Error : 1.254, s/b : 0.760
+Steps : 540, Gen Loss Total : 113.738, Loss Q : 4.735, Mel-Spec. Error : 1.239, s/b : 0.763
+Steps : 550, Gen Loss Total : 72.410, Loss Q : 0.732, Mel-Spec. Error : 1.200, s/b : 0.759
+Steps : 560, Gen Loss Total : 122.432, Loss Q : 5.385, Mel-Spec. Error : 1.271, s/b : 0.756
+Steps : 570, Gen Loss Total : 127.970, Loss Q : 5.887, Mel-Spec. Error : 1.296, s/b : 0.761
+Steps : 580, Gen Loss Total : 125.315, Loss Q : 5.665, Mel-Spec. Error : 1.248, s/b : 0.764
+Steps : 590, Gen Loss Total : 141.887, Loss Q : 7.497, Mel-Spec. Error : 1.239, s/b : 0.768
+Steps : 600, Gen Loss Total : 218.909, Loss Q : 15.108, Mel-Spec. Error : 1.266, s/b : 0.761
+Steps : 610, Gen Loss Total : 127.499, Loss Q : 6.546, Mel-Spec. Error : 1.148, s/b : 0.756
+Steps : 620, Gen Loss Total : 171.694, Loss Q : 9.293, Mel-Spec. Error : 1.489, s/b : 0.781
+Steps : 630, Gen Loss Total : 122.085, Loss Q : 5.270, Mel-Spec. Error : 1.286, s/b : 0.758
+Steps : 640, Gen Loss Total : 75.277, Loss Q : 0.763, Mel-Spec. Error : 1.244, s/b : 0.763
+Steps : 650, Gen Loss Total : 81.625, Loss Q : 1.160, Mel-Spec. Error : 1.312, s/b : 0.763
+Steps : 660, Gen Loss Total : 157.424, Loss Q : 9.303, Mel-Spec. Error : 1.167, s/b : 0.762
+Steps : 670, Gen Loss Total : 165.266, Loss Q : 9.680, Mel-Spec. Error : 1.270, s/b : 0.757
+Steps : 680, Gen Loss Total : 75.490, Loss Q : 1.295, Mel-Spec. Error : 1.133, s/b : 0.766
+Steps : 690, Gen Loss Total : 210.607, Loss Q : 14.059, Mel-Spec. Error : 1.278, s/b : 0.768
+Steps : 700, Gen Loss Total : 155.873, Loss Q : 9.357, Mel-Spec. Error : 1.117, s/b : 0.758
+Steps : 710, Gen Loss Total : 190.881, Loss Q : 12.601, Mel-Spec. Error : 1.191, s/b : 0.759
+Steps : 720, Gen Loss Total : 258.741, Loss Q : 18.494, Mel-Spec. Error : 1.384, s/b : 0.763
+Steps : 730, Gen Loss Total : 127.264, Loss Q : 6.237, Mel-Spec. Error : 1.146, s/b : 0.766
+Steps : 740, Gen Loss Total : 181.264, Loss Q : 12.089, Mel-Spec. Error : 1.081, s/b : 0.756
+Steps : 750, Gen Loss Total : 250.372, Loss Q : 18.540, Mel-Spec. Error : 1.162, s/b : 0.759
+Steps : 760, Gen Loss Total : 95.642, Loss Q : 3.535, Mel-Spec. Error : 1.081, s/b : 0.768
+Steps : 770, Gen Loss Total : 209.651, Loss Q : 14.413, Mel-Spec. Error : 1.166, s/b : 0.753
+Steps : 780, Gen Loss Total : 131.985, Loss Q : 6.382, Mel-Spec. Error : 1.266, s/b : 0.760
+Steps : 790, Gen Loss Total : 140.115, Loss Q : 7.019, Mel-Spec. Error : 1.282, s/b : 0.766
+Steps : 800, Gen Loss Total : 115.403, Loss Q : 5.617, Mel-Spec. Error : 1.088, s/b : 0.754
+Steps : 810, Gen Loss Total : 113.712, Loss Q : 5.255, Mel-Spec. Error : 1.132, s/b : 0.760
+Steps : 820, Gen Loss Total : 90.270, Loss Q : 2.489, Mel-Spec. Error : 1.188, s/b : 0.764
+Steps : 830, Gen Loss Total : 132.055, Loss Q : 6.542, Mel-Spec. Error : 1.230, s/b : 0.765
+Steps : 840, Gen Loss Total : 82.771, Loss Q : 2.597, Mel-Spec. Error : 1.024, s/b : 0.762
+Steps : 850, Gen Loss Total : 183.939, Loss Q : 11.937, Mel-Spec. Error : 1.156, s/b : 0.761
+Steps : 860, Gen Loss Total : 156.044, Loss Q : 9.267, Mel-Spec. Error : 1.123, s/b : 0.759
+Steps : 870, Gen Loss Total : 174.301, Loss Q : 11.330, Mel-Spec. Error : 1.114, s/b : 0.775
+Steps : 880, Gen Loss Total : 97.620, Loss Q : 3.466, Mel-Spec. Error : 1.153, s/b : 0.768
+Steps : 890, Gen Loss Total : 91.792, Loss Q : 2.891, Mel-Spec. Error : 1.123, s/b : 0.765
+Steps : 900, Gen Loss Total : 118.104, Loss Q : 5.968, Mel-Spec. Error : 1.046, s/b : 0.764
+Steps : 910, Gen Loss Total : 110.920, Loss Q : 4.691, Mel-Spec. Error : 1.147, s/b : 0.762
+Steps : 920, Gen Loss Total : 77.184, Loss Q : 1.544, Mel-Spec. Error : 1.127, s/b : 0.754
+Steps : 930, Gen Loss Total : 84.818, Loss Q : 1.939, Mel-Spec. Error : 1.172, s/b : 0.768
+Steps : 940, Gen Loss Total : 102.403, Loss Q : 4.280, Mel-Spec. Error : 1.087, s/b : 0.768
+Steps : 950, Gen Loss Total : 106.802, Loss Q : 4.328, Mel-Spec. Error : 1.170, s/b : 0.757
+Steps : 960, Gen Loss Total : 82.767, Loss Q : 2.165, Mel-Spec. Error : 1.108, s/b : 0.763
+Steps : 970, Gen Loss Total : 83.434, Loss Q : 2.365, Mel-Spec. Error : 1.063, s/b : 0.747
+Steps : 980, Gen Loss Total : 70.801, Loss Q : 1.124, Mel-Spec. Error : 1.054, s/b : 0.768
+Steps : 990, Gen Loss Total : 70.200, Loss Q : 1.100, Mel-Spec. Error : 1.044, s/b : 0.762
+Steps : 1000, Gen Loss Total : 78.968, Loss Q : 1.343, Mel-Spec. Error : 1.199, s/b : 0.763
+Saving checkpoint to checkpoints/test_kagayaki/config_24k_240d.json/g_00001000
+Complete.
+Saving checkpoint to checkpoints/test_kagayaki/config_24k_240d.json/do_00001000
+Complete.

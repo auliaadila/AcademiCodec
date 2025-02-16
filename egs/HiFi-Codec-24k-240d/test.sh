@@ -24,15 +24,16 @@
 source path.sh
 
 # Define the checkpoint directory and pattern for checkpoint files
-ckpt_dir="/home/s2310401/AcademiCodec/egs/HiFi-Codec-24k-240d/checkpoints"
+config="config_24k_240d_4c.json"
+ckpt_dir="/home/s2310401/AcademiCodec/egs/HiFi-Codec-24k-240d/checkpoints/${config}"
 ckpt_pattern="g_*"  # Pattern to match all checkpoint files
-config="config_24k_240d_8c.json"
+
 
 # Define the test wave directory
 wav_dir="/home/s2310401/AcademiCodec/data/test_wav"
 
 # Define base output directory
-base_outputdir="output/20250211_train/${config}"
+base_outputdir="output/ckpt-hf/${config}"
 
 echo -e "\nStart Inference"  # Added this line with newline
 

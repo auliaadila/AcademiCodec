@@ -1,0 +1,429 @@
+Train model...
+Number of GPU : 1
+Batch size per GPU : 2
+Using device: cuda:0
+Checkpoints will be saved in: checkpoints/config_24k_240d_8c.json
+Training batches: 5
+### Epoch 1/10
+Forward pass
+Compute spectrogram
+Compute discriminator loss
+Update discriminator
+Compute generator loss
+Update generator
+Steps : 0, Gen Loss Total : 223.022, Loss Q : 0.011, Mel-Spec. Error : 4.537, s/b : 6.444
+Forward pass
+Compute spectrogram
+Compute discriminator loss
+Update discriminator
+Compute generator loss
+Update generator
+Forward pass
+Compute spectrogram
+Compute discriminator loss
+Update discriminator
+Compute generator loss
+Update generator
+Forward pass
+Compute spectrogram
+Compute discriminator loss
+Update discriminator
+Compute generator loss
+Update generator
+Forward pass
+Compute spectrogram
+Compute discriminator loss
+Update discriminator
+Compute generator loss
+Update generator
+Time taken for epoch 1 is 8 sec
+
+### Epoch 2/10
+Forward pass
+Compute spectrogram
+Compute discriminator loss
+Update discriminator
+Compute generator loss
+Update generator
+Steps : 5, Gen Loss Total : 90.937, Loss Q : 0.090, Mel-Spec. Error : 1.757, s/b : 0.237
+--- Validation at step 5 ---
+Validation Completed | Avg Mel-Spectrogram Error: 1.8568
+--- End of Validation ---
+
+Forward pass
+Compute spectrogram
+Compute discriminator loss
+Update discriminator
+Compute generator loss
+Update generator
+Forward pass
+Compute spectrogram
+Compute discriminator loss
+Update discriminator
+Compute generator loss
+Update generator
+Forward pass
+Compute spectrogram
+Compute discriminator loss
+Update discriminator
+Compute generator loss
+Update generator
+Forward pass
+Compute spectrogram
+Compute discriminator loss
+Update discriminator
+Compute generator loss
+Update generator
+Time taken for epoch 2 is 7 sec
+
+### Epoch 3/10
+Forward pass
+Compute spectrogram
+Compute discriminator loss
+Update discriminator
+Compute generator loss
+Update generator
+Steps : 10, Gen Loss Total : 61.303, Loss Q : 0.244, Mel-Spec. Error : 1.121, s/b : 0.238
+Saving checkpoint to checkpoints/config_24k_240d_8c.json/g_00000010-20250211_154202
+Complete.
+Saving checkpoint to checkpoints/config_24k_240d_8c.json/do_00000010-20250211_154202
+Complete.
+checkpoint saved
+--- Validation at step 10 ---
+Validation Completed | Avg Mel-Spectrogram Error: 1.5695
+--- End of Validation ---
+
+Forward pass
+Compute spectrogram
+Compute discriminator loss
+Update discriminator
+Compute generator loss
+Update generator
+Forward pass
+Compute spectrogram
+Compute discriminator loss
+Update discriminator
+Compute generator loss
+Update generator
+Forward pass
+Compute spectrogram
+Compute discriminator loss
+Update discriminator
+Compute generator loss
+Update generator
+Forward pass
+Compute spectrogram
+Compute discriminator loss
+Update discriminator
+Compute generator loss
+Update generator
+Time taken for epoch 3 is 5 sec
+
+### Epoch 4/10
+Forward pass
+Compute spectrogram
+Compute discriminator loss
+Update discriminator
+Compute generator loss
+Update generator
+Steps : 15, Gen Loss Total : 57.982, Loss Q : 0.297, Mel-Spec. Error : 1.081, s/b : 0.234
+--- Validation at step 15 ---
+Validation Completed | Avg Mel-Spectrogram Error: 1.5231
+--- End of Validation ---
+
+Forward pass
+Compute spectrogram
+Compute discriminator loss
+Update discriminator
+Compute generator loss
+Update generator
+Forward pass
+Compute spectrogram
+Compute discriminator loss
+Update discriminator
+Compute generator loss
+Update generator
+Forward pass
+Compute spectrogram
+Compute discriminator loss
+Update discriminator
+Compute generator loss
+Update generator
+Forward pass
+Compute spectrogram
+Compute discriminator loss
+Update discriminator
+Compute generator loss
+Update generator
+Time taken for epoch 4 is 3 sec
+
+### Epoch 5/10
+Forward pass
+Compute spectrogram
+Compute discriminator loss
+Update discriminator
+Compute generator loss
+Update generator
+Steps : 20, Gen Loss Total : 57.664, Loss Q : 0.334, Mel-Spec. Error : 1.068, s/b : 0.237
+Saving checkpoint to checkpoints/config_24k_240d_8c.json/g_00000020-20250211_154211
+Complete.
+Saving checkpoint to checkpoints/config_24k_240d_8c.json/do_00000020-20250211_154212
+Complete.
+checkpoint saved
+--- Validation at step 20 ---
+Validation Completed | Avg Mel-Spectrogram Error: 1.5069
+--- End of Validation ---
+
+Forward pass
+Compute spectrogram
+Compute discriminator loss
+Update discriminator
+Compute generator loss
+Update generator
+Forward pass
+Compute spectrogram
+Compute discriminator loss
+Update discriminator
+Compute generator loss
+Update generator
+Forward pass
+Compute spectrogram
+Compute discriminator loss
+Update discriminator
+Compute generator loss
+Update generator
+Forward pass
+Compute spectrogram
+Compute discriminator loss
+Update discriminator
+Compute generator loss
+Update generator
+Time taken for epoch 5 is 5 sec
+
+### Epoch 6/10
+Forward pass
+Compute spectrogram
+Compute discriminator loss
+Update discriminator
+Compute generator loss
+Update generator
+Steps : 25, Gen Loss Total : 56.708, Loss Q : 0.395, Mel-Spec. Error : 1.022, s/b : 0.235
+--- Validation at step 25 ---
+Validation Completed | Avg Mel-Spectrogram Error: 1.4563
+--- End of Validation ---
+
+Forward pass
+Compute spectrogram
+Compute discriminator loss
+Update discriminator
+Compute generator loss
+Update generator
+Forward pass
+Compute spectrogram
+Compute discriminator loss
+Update discriminator
+Compute generator loss
+Update generator
+Forward pass
+Compute spectrogram
+Compute discriminator loss
+Update discriminator
+Compute generator loss
+Update generator
+Forward pass
+Compute spectrogram
+Compute discriminator loss
+Update discriminator
+Compute generator loss
+Update generator
+Time taken for epoch 6 is 3 sec
+
+### Epoch 7/10
+Forward pass
+Compute spectrogram
+Compute discriminator loss
+Update discriminator
+Compute generator loss
+Update generator
+Steps : 30, Gen Loss Total : 69.418, Loss Q : 0.523, Mel-Spec. Error : 1.256, s/b : 0.230
+Saving checkpoint to checkpoints/config_24k_240d_8c.json/g_00000030-20250211_154221
+Complete.
+Saving checkpoint to checkpoints/config_24k_240d_8c.json/do_00000030-20250211_154221
+Complete.
+checkpoint saved
+--- Validation at step 30 ---
+Validation Completed | Avg Mel-Spectrogram Error: 1.4630
+--- End of Validation ---
+
+Forward pass
+Compute spectrogram
+Compute discriminator loss
+Update discriminator
+Compute generator loss
+Update generator
+Forward pass
+Compute spectrogram
+Compute discriminator loss
+Update discriminator
+Compute generator loss
+Update generator
+Forward pass
+Compute spectrogram
+Compute discriminator loss
+Update discriminator
+Compute generator loss
+Update generator
+Forward pass
+Compute spectrogram
+Compute discriminator loss
+Update discriminator
+Compute generator loss
+Update generator
+Time taken for epoch 7 is 5 sec
+
+### Epoch 8/10
+Forward pass
+Compute spectrogram
+Compute discriminator loss
+Update discriminator
+Compute generator loss
+Update generator
+Steps : 35, Gen Loss Total : 60.115, Loss Q : 0.825, Mel-Spec. Error : 1.008, s/b : 0.232
+--- Validation at step 35 ---
+Validation Completed | Avg Mel-Spectrogram Error: 1.4910
+--- End of Validation ---
+
+Forward pass
+Compute spectrogram
+Compute discriminator loss
+Update discriminator
+Compute generator loss
+Update generator
+Forward pass
+Compute spectrogram
+Compute discriminator loss
+Update discriminator
+Compute generator loss
+Update generator
+Forward pass
+Compute spectrogram
+Compute discriminator loss
+Update discriminator
+Compute generator loss
+Update generator
+Forward pass
+Compute spectrogram
+Compute discriminator loss
+Update discriminator
+Compute generator loss
+Update generator
+Time taken for epoch 8 is 3 sec
+
+### Epoch 9/10
+Forward pass
+Compute spectrogram
+Compute discriminator loss
+Update discriminator
+Compute generator loss
+Update generator
+Steps : 40, Gen Loss Total : 58.779, Loss Q : 0.921, Mel-Spec. Error : 0.958, s/b : 0.233
+Saving checkpoint to checkpoints/config_24k_240d_8c.json/g_00000040-20250211_154231
+Complete.
+Saving checkpoint to checkpoints/config_24k_240d_8c.json/do_00000040-20250211_154231
+Complete.
+checkpoint saved
+--- Validation at step 40 ---
+Validation Completed | Avg Mel-Spectrogram Error: 1.5115
+--- End of Validation ---
+
+Forward pass
+Compute spectrogram
+Compute discriminator loss
+Update discriminator
+Compute generator loss
+Update generator
+Forward pass
+Compute spectrogram
+Compute discriminator loss
+Update discriminator
+Compute generator loss
+Update generator
+Forward pass
+Compute spectrogram
+Compute discriminator loss
+Update discriminator
+Compute generator loss
+Update generator
+Forward pass
+Compute spectrogram
+Compute discriminator loss
+Update discriminator
+Compute generator loss
+Update generator
+Time taken for epoch 9 is 6 sec
+
+### Epoch 10/10
+Forward pass
+Compute spectrogram
+Compute discriminator loss
+Update discriminator
+Compute generator loss
+Update generator
+Steps : 45, Gen Loss Total : 71.002, Loss Q : 1.157, Mel-Spec. Error : 1.163, s/b : 0.235
+--- Validation at step 45 ---
+Validation Completed | Avg Mel-Spectrogram Error: 1.4290
+--- End of Validation ---
+
+Forward pass
+Compute spectrogram
+Compute discriminator loss
+Update discriminator
+Compute generator loss
+Update generator
+Forward pass
+Compute spectrogram
+Compute discriminator loss
+Update discriminator
+Compute generator loss
+Update generator
+Forward pass
+Compute spectrogram
+Compute discriminator loss
+Update discriminator
+Compute generator loss
+Update generator
+Forward pass
+Compute spectrogram
+Compute discriminator loss
+Update discriminator
+Compute generator loss
+Update generator
+Time taken for epoch 10 is 3 sec
+
+
+Start Inference
+Running inference for checkpoint: /home/s2310401/AcademiCodec/egs/HiFi-Codec-24k-240d/checkpoints/config_24k_240d_8c.json/g_00000010-20250211_154202
+Init model and load weights
+Removing weight norm...
+Removing weight norm...
+Model ready
+Globbed 5 wav files.
+Running inference for checkpoint: /home/s2310401/AcademiCodec/egs/HiFi-Codec-24k-240d/checkpoints/config_24k_240d_8c.json/g_00000020-20250211_154211
+Init model and load weights
+Removing weight norm...
+Removing weight norm...
+Model ready
+Globbed 5 wav files.
+Running inference for checkpoint: /home/s2310401/AcademiCodec/egs/HiFi-Codec-24k-240d/checkpoints/config_24k_240d_8c.json/g_00000030-20250211_154221
+Init model and load weights
+Removing weight norm...
+Removing weight norm...
+Model ready
+Globbed 5 wav files.
+Running inference for checkpoint: /home/s2310401/AcademiCodec/egs/HiFi-Codec-24k-240d/checkpoints/config_24k_240d_8c.json/g_00000040-20250211_154231
+Init model and load weights
+Removing weight norm...
+Removing weight norm...
+Model ready
+Globbed 5 wav files.
+Inference completed for all checkpoints.
