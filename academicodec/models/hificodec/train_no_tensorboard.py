@@ -463,6 +463,7 @@ def main():
     # torch.cuda.empty_cache()
 
     if h.num_gpus > 1:
+        print("using multi-gpu")
         mp.spawn(train, nprocs=h.num_gpus, args=(a, h, ))
     else:
         train(0, a, h) #(rank, a, h)

@@ -196,6 +196,16 @@ def train(rank, a, h):
     quantizer.train()
     mpd.train()
     msd.train()
+
+    # Print data sample size
+    # opt 1
+    num_samples = len(trainset)
+    print(f"Total training samples: {num_samples}")
+    # opt 2
+    num_batches = len(train_loader)  # Number of batches
+    num_samples = num_batches * h.batch_size
+    print(f"Total estimated samples: {num_samples}")
+    
     for epoch in range(max(0, last_epoch), a.training_epochs):
         if rank == 0:
             start = time.time()
@@ -395,6 +405,8 @@ def train(rank, a, h):
         if rank == 0:
             print('Time taken for epoch {} is {} sec\n'.format(
                 epoch + 1, int(time.time() - start)))
+    
+    print(f"Total number of steps: {steps}")
 
 
 def main():
@@ -410,10 +422,12 @@ def main():
     parser.add_argument('--checkpoint_path', default='checkpoints')
     parser.add_argument('--config', default='')
     parser.add_argument('--training_epochs', default=2000, type=int)
-    parser.add_argument('--stdout_interval', default=5, type=int)
-    parser.add_argument('--checkpoint_interval', default=5000, type=int)
+    parser.add_argument('--stdout_interval', default=10, type=int)
+    # parser.add_argument('--checkpoint_interval', default=5000, type=int)
+    parser.add_argument('--checkpoint_interval', default=1000, type=int)
     parser.add_argument('--summary_interval', default=100, type=int)
-    parser.add_argument('--validation_interval', default=5000, type=int)
+    # parser.add_argument('--summary_interval', default=5, type=int)
+    parser.add_argument('--validation_interval', default=1000, type=int)
     parser.add_argument('--num_ckpt_keep', default=5, type=int)
     parser.add_argument('--fine_tuning', default=False, type=bool)
 
@@ -431,6 +445,7 @@ def main():
         torch.cuda.manual_seed(h.seed)
         h.num_gpus = torch.cuda.device_count()
         h.batch_size = int(h.batch_size / h.num_gpus)
+        print('Number of GPU :', h.num_gpus)
         print('Batch size per GPU :', h.batch_size)
     else:
         pass
@@ -439,6 +454,8 @@ def main():
         mp.spawn(train, nprocs=h.num_gpus, args=(a, h, ))
     else:
         train(0, a, h)
+    
+    print('Training Process Finished!')
 
 
 if __name__ == '__main__':
