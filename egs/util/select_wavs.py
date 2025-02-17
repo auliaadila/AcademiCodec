@@ -1,6 +1,7 @@
 import os
 import random
 import shutil
+import argparse
 import soundfile as sf
 
 def get_audio_duration(file_path):
@@ -17,7 +18,7 @@ def select_random_wavs(source_folder, target_folder, total_duration_hours):
     wav_files = [os.path.join(source_folder, f) for f in os.listdir(source_folder) if f.endswith(".wav")]
     
     if not wav_files:
-        print("No WAV files found in the source folder.")
+        print("❌ No WAV files found in the source folder.")
         return
 
     selected_files = []
@@ -45,9 +46,16 @@ def select_random_wavs(source_folder, target_folder, total_duration_hours):
 
     print(f"✅ Copied {len(selected_files)} files with a total duration of {selected_duration/3600:.2f} hours to '{target_folder}'.")
 
-# Example Usage
-source_folder = "path/to/source_folder"  # Replace with your folder path
-target_folder = "path/to/target_folder"  # Replace with your destination folder
-total_duration_hours = 2  # Change to the desired duration in hours
+def main():
+    parser = argparse.ArgumentParser(description="Select random WAV files until a total duration is met and copy them to another folder.")
 
-select_random_wavs(source_folder, target_folder, total_duration_hours)
+    parser.add_argument("source_folder", type=str, help="Path to the source folder containing .wav files.")
+    parser.add_argument("target_folder", type=str, help="Path to the destination folder where selected .wav files will be copied.")
+    parser.add_argument("total_duration_hours", type=float, help="Total duration (in hours) of selected files.")
+
+    args = parser.parse_args()
+
+    select_random_wavs(args.source_folder, args.target_folder, args.total_duration_hours)
+
+if __name__ == "__main__":
+    main()
