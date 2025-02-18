@@ -1,0 +1,561 @@
+Initializing Training Process..
+Number of GPU : 1
+Batch size per GPU : 32
+Encoder(
+  (conv_pre): Conv1d(1, 32, kernel_size=(7,), stride=(1,), padding=(3,))
+  (normalize): ModuleList(
+    (0-2): 3 x GroupNorm(4, 64, eps=1e-06, affine=True)
+    (3-5): 3 x GroupNorm(8, 128, eps=1e-06, affine=True)
+    (6-8): 3 x GroupNorm(16, 256, eps=1e-06, affine=True)
+    (9-11): 3 x GroupNorm(32, 512, eps=1e-06, affine=True)
+  )
+  (ups): ModuleList(
+    (0): Conv1d(32, 64, kernel_size=(4,), stride=(2,), padding=(1,))
+    (1): Conv1d(64, 128, kernel_size=(7,), stride=(3,), padding=(2,))
+    (2): Conv1d(128, 256, kernel_size=(11,), stride=(5,), padding=(3,))
+    (3): Conv1d(256, 512, kernel_size=(16,), stride=(8,), padding=(4,))
+  )
+  (resblocks): ModuleList(
+    (0): ResBlock1(
+      (convs1): ModuleList(
+        (0): Conv1d(64, 64, kernel_size=(11,), stride=(1,), padding=(5,))
+        (1): Conv1d(64, 64, kernel_size=(11,), stride=(1,), padding=(15,), dilation=(3,))
+        (2): Conv1d(64, 64, kernel_size=(11,), stride=(1,), padding=(25,), dilation=(5,))
+      )
+      (convs2): ModuleList(
+        (0-2): 3 x Conv1d(64, 64, kernel_size=(11,), stride=(1,), padding=(5,))
+      )
+    )
+    (1): ResBlock1(
+      (convs1): ModuleList(
+        (0): Conv1d(64, 64, kernel_size=(7,), stride=(1,), padding=(3,))
+        (1): Conv1d(64, 64, kernel_size=(7,), stride=(1,), padding=(9,), dilation=(3,))
+        (2): Conv1d(64, 64, kernel_size=(7,), stride=(1,), padding=(15,), dilation=(5,))
+      )
+      (convs2): ModuleList(
+        (0-2): 3 x Conv1d(64, 64, kernel_size=(7,), stride=(1,), padding=(3,))
+      )
+    )
+    (2): ResBlock1(
+      (convs1): ModuleList(
+        (0): Conv1d(64, 64, kernel_size=(3,), stride=(1,), padding=(1,))
+        (1): Conv1d(64, 64, kernel_size=(3,), stride=(1,), padding=(3,), dilation=(3,))
+        (2): Conv1d(64, 64, kernel_size=(3,), stride=(1,), padding=(5,), dilation=(5,))
+      )
+      (convs2): ModuleList(
+        (0-2): 3 x Conv1d(64, 64, kernel_size=(3,), stride=(1,), padding=(1,))
+      )
+    )
+    (3): ResBlock1(
+      (convs1): ModuleList(
+        (0): Conv1d(128, 128, kernel_size=(11,), stride=(1,), padding=(5,))
+        (1): Conv1d(128, 128, kernel_size=(11,), stride=(1,), padding=(15,), dilation=(3,))
+        (2): Conv1d(128, 128, kernel_size=(11,), stride=(1,), padding=(25,), dilation=(5,))
+      )
+      (convs2): ModuleList(
+        (0-2): 3 x Conv1d(128, 128, kernel_size=(11,), stride=(1,), padding=(5,))
+      )
+    )
+    (4): ResBlock1(
+      (convs1): ModuleList(
+        (0): Conv1d(128, 128, kernel_size=(7,), stride=(1,), padding=(3,))
+        (1): Conv1d(128, 128, kernel_size=(7,), stride=(1,), padding=(9,), dilation=(3,))
+        (2): Conv1d(128, 128, kernel_size=(7,), stride=(1,), padding=(15,), dilation=(5,))
+      )
+      (convs2): ModuleList(
+        (0-2): 3 x Conv1d(128, 128, kernel_size=(7,), stride=(1,), padding=(3,))
+      )
+    )
+    (5): ResBlock1(
+      (convs1): ModuleList(
+        (0): Conv1d(128, 128, kernel_size=(3,), stride=(1,), padding=(1,))
+        (1): Conv1d(128, 128, kernel_size=(3,), stride=(1,), padding=(3,), dilation=(3,))
+        (2): Conv1d(128, 128, kernel_size=(3,), stride=(1,), padding=(5,), dilation=(5,))
+      )
+      (convs2): ModuleList(
+        (0-2): 3 x Conv1d(128, 128, kernel_size=(3,), stride=(1,), padding=(1,))
+      )
+    )
+    (6): ResBlock1(
+      (convs1): ModuleList(
+        (0): Conv1d(256, 256, kernel_size=(11,), stride=(1,), padding=(5,))
+        (1): Conv1d(256, 256, kernel_size=(11,), stride=(1,), padding=(15,), dilation=(3,))
+        (2): Conv1d(256, 256, kernel_size=(11,), stride=(1,), padding=(25,), dilation=(5,))
+      )
+      (convs2): ModuleList(
+        (0-2): 3 x Conv1d(256, 256, kernel_size=(11,), stride=(1,), padding=(5,))
+      )
+    )
+    (7): ResBlock1(
+      (convs1): ModuleList(
+        (0): Conv1d(256, 256, kernel_size=(7,), stride=(1,), padding=(3,))
+        (1): Conv1d(256, 256, kernel_size=(7,), stride=(1,), padding=(9,), dilation=(3,))
+        (2): Conv1d(256, 256, kernel_size=(7,), stride=(1,), padding=(15,), dilation=(5,))
+      )
+      (convs2): ModuleList(
+        (0-2): 3 x Conv1d(256, 256, kernel_size=(7,), stride=(1,), padding=(3,))
+      )
+    )
+    (8): ResBlock1(
+      (convs1): ModuleList(
+        (0): Conv1d(256, 256, kernel_size=(3,), stride=(1,), padding=(1,))
+        (1): Conv1d(256, 256, kernel_size=(3,), stride=(1,), padding=(3,), dilation=(3,))
+        (2): Conv1d(256, 256, kernel_size=(3,), stride=(1,), padding=(5,), dilation=(5,))
+      )
+      (convs2): ModuleList(
+        (0-2): 3 x Conv1d(256, 256, kernel_size=(3,), stride=(1,), padding=(1,))
+      )
+    )
+    (9): ResBlock1(
+      (convs1): ModuleList(
+        (0): Conv1d(512, 512, kernel_size=(11,), stride=(1,), padding=(5,))
+        (1): Conv1d(512, 512, kernel_size=(11,), stride=(1,), padding=(15,), dilation=(3,))
+        (2): Conv1d(512, 512, kernel_size=(11,), stride=(1,), padding=(25,), dilation=(5,))
+      )
+      (convs2): ModuleList(
+        (0-2): 3 x Conv1d(512, 512, kernel_size=(11,), stride=(1,), padding=(5,))
+      )
+    )
+    (10): ResBlock1(
+      (convs1): ModuleList(
+        (0): Conv1d(512, 512, kernel_size=(7,), stride=(1,), padding=(3,))
+        (1): Conv1d(512, 512, kernel_size=(7,), stride=(1,), padding=(9,), dilation=(3,))
+        (2): Conv1d(512, 512, kernel_size=(7,), stride=(1,), padding=(15,), dilation=(5,))
+      )
+      (convs2): ModuleList(
+        (0-2): 3 x Conv1d(512, 512, kernel_size=(7,), stride=(1,), padding=(3,))
+      )
+    )
+    (11): ResBlock1(
+      (convs1): ModuleList(
+        (0): Conv1d(512, 512, kernel_size=(3,), stride=(1,), padding=(1,))
+        (1): Conv1d(512, 512, kernel_size=(3,), stride=(1,), padding=(3,), dilation=(3,))
+        (2): Conv1d(512, 512, kernel_size=(3,), stride=(1,), padding=(5,), dilation=(5,))
+      )
+      (convs2): ModuleList(
+        (0-2): 3 x Conv1d(512, 512, kernel_size=(3,), stride=(1,), padding=(1,))
+      )
+    )
+  )
+  (conv_post): Conv1d(512, 512, kernel_size=(3,), stride=(1,), padding=(1,))
+)
+Quantizer(
+  (quantizer_modules): ModuleList(
+    (0-1): 2 x Quantizer_module(
+      (embedding): Embedding(1024, 256)
+    )
+  )
+  (quantizer_modules2): ModuleList(
+    (0-1): 2 x Quantizer_module(
+      (embedding): Embedding(1024, 256)
+    )
+  )
+)
+Generator(
+  (conv_pre): Conv1d(512, 512, kernel_size=(7,), stride=(1,), padding=(3,))
+  (ups): ModuleList(
+    (0): ConvTranspose1d(512, 256, kernel_size=(16,), stride=(8,), padding=(4,))
+    (1): ConvTranspose1d(256, 128, kernel_size=(11,), stride=(5,), padding=(3,))
+    (2): ConvTranspose1d(128, 64, kernel_size=(7,), stride=(3,), padding=(2,))
+    (3): ConvTranspose1d(64, 32, kernel_size=(4,), stride=(2,), padding=(1,))
+  )
+  (resblocks): ModuleList(
+    (0): ResBlock1(
+      (convs1): ModuleList(
+        (0): Conv1d(256, 256, kernel_size=(3,), stride=(1,), padding=(1,))
+        (1): Conv1d(256, 256, kernel_size=(3,), stride=(1,), padding=(3,), dilation=(3,))
+        (2): Conv1d(256, 256, kernel_size=(3,), stride=(1,), padding=(5,), dilation=(5,))
+      )
+      (convs2): ModuleList(
+        (0-2): 3 x Conv1d(256, 256, kernel_size=(3,), stride=(1,), padding=(1,))
+      )
+    )
+    (1): ResBlock1(
+      (convs1): ModuleList(
+        (0): Conv1d(256, 256, kernel_size=(7,), stride=(1,), padding=(3,))
+        (1): Conv1d(256, 256, kernel_size=(7,), stride=(1,), padding=(9,), dilation=(3,))
+        (2): Conv1d(256, 256, kernel_size=(7,), stride=(1,), padding=(15,), dilation=(5,))
+      )
+      (convs2): ModuleList(
+        (0-2): 3 x Conv1d(256, 256, kernel_size=(7,), stride=(1,), padding=(3,))
+      )
+    )
+    (2): ResBlock1(
+      (convs1): ModuleList(
+        (0): Conv1d(256, 256, kernel_size=(11,), stride=(1,), padding=(5,))
+        (1): Conv1d(256, 256, kernel_size=(11,), stride=(1,), padding=(15,), dilation=(3,))
+        (2): Conv1d(256, 256, kernel_size=(11,), stride=(1,), padding=(25,), dilation=(5,))
+      )
+      (convs2): ModuleList(
+        (0-2): 3 x Conv1d(256, 256, kernel_size=(11,), stride=(1,), padding=(5,))
+      )
+    )
+    (3): ResBlock1(
+      (convs1): ModuleList(
+        (0): Conv1d(128, 128, kernel_size=(3,), stride=(1,), padding=(1,))
+        (1): Conv1d(128, 128, kernel_size=(3,), stride=(1,), padding=(3,), dilation=(3,))
+        (2): Conv1d(128, 128, kernel_size=(3,), stride=(1,), padding=(5,), dilation=(5,))
+      )
+      (convs2): ModuleList(
+        (0-2): 3 x Conv1d(128, 128, kernel_size=(3,), stride=(1,), padding=(1,))
+      )
+    )
+    (4): ResBlock1(
+      (convs1): ModuleList(
+        (0): Conv1d(128, 128, kernel_size=(7,), stride=(1,), padding=(3,))
+        (1): Conv1d(128, 128, kernel_size=(7,), stride=(1,), padding=(9,), dilation=(3,))
+        (2): Conv1d(128, 128, kernel_size=(7,), stride=(1,), padding=(15,), dilation=(5,))
+      )
+      (convs2): ModuleList(
+        (0-2): 3 x Conv1d(128, 128, kernel_size=(7,), stride=(1,), padding=(3,))
+      )
+    )
+    (5): ResBlock1(
+      (convs1): ModuleList(
+        (0): Conv1d(128, 128, kernel_size=(11,), stride=(1,), padding=(5,))
+        (1): Conv1d(128, 128, kernel_size=(11,), stride=(1,), padding=(15,), dilation=(3,))
+        (2): Conv1d(128, 128, kernel_size=(11,), stride=(1,), padding=(25,), dilation=(5,))
+      )
+      (convs2): ModuleList(
+        (0-2): 3 x Conv1d(128, 128, kernel_size=(11,), stride=(1,), padding=(5,))
+      )
+    )
+    (6): ResBlock1(
+      (convs1): ModuleList(
+        (0): Conv1d(64, 64, kernel_size=(3,), stride=(1,), padding=(1,))
+        (1): Conv1d(64, 64, kernel_size=(3,), stride=(1,), padding=(3,), dilation=(3,))
+        (2): Conv1d(64, 64, kernel_size=(3,), stride=(1,), padding=(5,), dilation=(5,))
+      )
+      (convs2): ModuleList(
+        (0-2): 3 x Conv1d(64, 64, kernel_size=(3,), stride=(1,), padding=(1,))
+      )
+    )
+    (7): ResBlock1(
+      (convs1): ModuleList(
+        (0): Conv1d(64, 64, kernel_size=(7,), stride=(1,), padding=(3,))
+        (1): Conv1d(64, 64, kernel_size=(7,), stride=(1,), padding=(9,), dilation=(3,))
+        (2): Conv1d(64, 64, kernel_size=(7,), stride=(1,), padding=(15,), dilation=(5,))
+      )
+      (convs2): ModuleList(
+        (0-2): 3 x Conv1d(64, 64, kernel_size=(7,), stride=(1,), padding=(3,))
+      )
+    )
+    (8): ResBlock1(
+      (convs1): ModuleList(
+        (0): Conv1d(64, 64, kernel_size=(11,), stride=(1,), padding=(5,))
+        (1): Conv1d(64, 64, kernel_size=(11,), stride=(1,), padding=(15,), dilation=(3,))
+        (2): Conv1d(64, 64, kernel_size=(11,), stride=(1,), padding=(25,), dilation=(5,))
+      )
+      (convs2): ModuleList(
+        (0-2): 3 x Conv1d(64, 64, kernel_size=(11,), stride=(1,), padding=(5,))
+      )
+    )
+    (9): ResBlock1(
+      (convs1): ModuleList(
+        (0): Conv1d(32, 32, kernel_size=(3,), stride=(1,), padding=(1,))
+        (1): Conv1d(32, 32, kernel_size=(3,), stride=(1,), padding=(3,), dilation=(3,))
+        (2): Conv1d(32, 32, kernel_size=(3,), stride=(1,), padding=(5,), dilation=(5,))
+      )
+      (convs2): ModuleList(
+        (0-2): 3 x Conv1d(32, 32, kernel_size=(3,), stride=(1,), padding=(1,))
+      )
+    )
+    (10): ResBlock1(
+      (convs1): ModuleList(
+        (0): Conv1d(32, 32, kernel_size=(7,), stride=(1,), padding=(3,))
+        (1): Conv1d(32, 32, kernel_size=(7,), stride=(1,), padding=(9,), dilation=(3,))
+        (2): Conv1d(32, 32, kernel_size=(7,), stride=(1,), padding=(15,), dilation=(5,))
+      )
+      (convs2): ModuleList(
+        (0-2): 3 x Conv1d(32, 32, kernel_size=(7,), stride=(1,), padding=(3,))
+      )
+    )
+    (11): ResBlock1(
+      (convs1): ModuleList(
+        (0): Conv1d(32, 32, kernel_size=(11,), stride=(1,), padding=(5,))
+        (1): Conv1d(32, 32, kernel_size=(11,), stride=(1,), padding=(15,), dilation=(3,))
+        (2): Conv1d(32, 32, kernel_size=(11,), stride=(1,), padding=(25,), dilation=(5,))
+      )
+      (convs2): ModuleList(
+        (0-2): 3 x Conv1d(32, 32, kernel_size=(11,), stride=(1,), padding=(5,))
+      )
+    )
+  )
+  (conv_post): Conv1d(32, 1, kernel_size=(7,), stride=(1,), padding=(3,))
+)
+checkpoints directory :  checkpoints/test_vastai/config_24k_240d.json/20250217
+Total training samples: 6224
+Epoch: 1
+Steps : 0, Gen Loss Total : 222.469, Loss Q : 0.011, Mel-Spec. Error : 4.520, s/b : 17.022
+Steps : 10, Gen Loss Total : 80.581, Loss Q : 0.234, Mel-Spec. Error : 1.532, s/b : 0.733
+Steps : 20, Gen Loss Total : 82.256, Loss Q : 0.455, Mel-Spec. Error : 1.533, s/b : 0.736
+Steps : 30, Gen Loss Total : 81.399, Loss Q : 0.765, Mel-Spec. Error : 1.443, s/b : 0.738
+Steps : 40, Gen Loss Total : 82.201, Loss Q : 0.717, Mel-Spec. Error : 1.461, s/b : 0.739
+Steps : 50, Gen Loss Total : 81.576, Loss Q : 1.280, Mel-Spec. Error : 1.316, s/b : 0.741
+Steps : 60, Gen Loss Total : 89.480, Loss Q : 1.688, Mel-Spec. Error : 1.372, s/b : 0.746
+Steps : 70, Gen Loss Total : 103.061, Loss Q : 2.838, Mel-Spec. Error : 1.400, s/b : 0.740
+Steps : 80, Gen Loss Total : 109.943, Loss Q : 3.859, Mel-Spec. Error : 1.332, s/b : 0.750
+Steps : 90, Gen Loss Total : 76.121, Loss Q : 0.464, Mel-Spec. Error : 1.368, s/b : 0.750
+Steps : 100, Gen Loss Total : 114.420, Loss Q : 4.597, Mel-Spec. Error : 1.298, s/b : 0.750
+Saving checkpoint to checkpoints/test_vastai/config_24k_240d.json/20250217/g_s-00000100_e-000
+Complete.
+Saving checkpoint to checkpoints/test_vastai/config_24k_240d.json/20250217/do_s-00000100_e-000
+Complete.
+Steps : 110, Gen Loss Total : 129.490, Loss Q : 5.623, Mel-Spec. Error : 1.438, s/b : 0.747
+Steps : 120, Gen Loss Total : 103.735, Loss Q : 2.184, Mel-Spec. Error : 1.565, s/b : 0.746
+Steps : 130, Gen Loss Total : 148.520, Loss Q : 7.659, Mel-Spec. Error : 1.356, s/b : 0.754
+Steps : 140, Gen Loss Total : 125.012, Loss Q : 4.770, Mel-Spec. Error : 1.513, s/b : 0.751
+Steps : 150, Gen Loss Total : 84.706, Loss Q : 1.135, Mel-Spec. Error : 1.415, s/b : 0.754
+Steps : 160, Gen Loss Total : 215.838, Loss Q : 13.245, Mel-Spec. Error : 1.613, s/b : 0.754
+Steps : 170, Gen Loss Total : 186.304, Loss Q : 11.609, Mel-Spec. Error : 1.330, s/b : 0.759
+Steps : 180, Gen Loss Total : 245.296, Loss Q : 17.827, Mel-Spec. Error : 1.289, s/b : 0.753
+Steps : 190, Gen Loss Total : 125.219, Loss Q : 5.834, Mel-Spec. Error : 1.291, s/b : 0.756
+Time taken for epoch 1 is 561 sec
+
+Epoch: 2
+Steps : 200, Gen Loss Total : 113.197, Loss Q : 4.291, Mel-Spec. Error : 1.357, s/b : 0.753
+Saving checkpoint to checkpoints/test_vastai/config_24k_240d.json/20250217/g_s-00000200_e-001
+Complete.
+Saving checkpoint to checkpoints/test_vastai/config_24k_240d.json/20250217/do_s-00000200_e-001
+Complete.
+Steps : 210, Gen Loss Total : 96.996, Loss Q : 2.321, Mel-Spec. Error : 1.417, s/b : 0.774
+Steps : 220, Gen Loss Total : 171.199, Loss Q : 9.774, Mel-Spec. Error : 1.353, s/b : 0.748
+Steps : 230, Gen Loss Total : 204.510, Loss Q : 13.319, Mel-Spec. Error : 1.326, s/b : 0.753
+Steps : 240, Gen Loss Total : 245.053, Loss Q : 17.323, Mel-Spec. Error : 1.361, s/b : 0.751
+Steps : 250, Gen Loss Total : 183.032, Loss Q : 10.331, Mel-Spec. Error : 1.540, s/b : 0.751
+Steps : 260, Gen Loss Total : 99.141, Loss Q : 2.808, Mel-Spec. Error : 1.331, s/b : 0.758
+Steps : 270, Gen Loss Total : 188.122, Loss Q : 12.179, Mel-Spec. Error : 1.245, s/b : 0.752
+Steps : 280, Gen Loss Total : 253.311, Loss Q : 17.629, Mel-Spec. Error : 1.471, s/b : 0.753
+Steps : 290, Gen Loss Total : 122.084, Loss Q : 5.208, Mel-Spec. Error : 1.301, s/b : 0.750
+Steps : 300, Gen Loss Total : 175.615, Loss Q : 9.894, Mel-Spec. Error : 1.460, s/b : 0.752
+Saving checkpoint to checkpoints/test_vastai/config_24k_240d.json/20250217/g_s-00000300_e-001
+Complete.
+Saving checkpoint to checkpoints/test_vastai/config_24k_240d.json/20250217/do_s-00000300_e-001
+Complete.
+Steps : 310, Gen Loss Total : 184.766, Loss Q : 11.709, Mel-Spec. Error : 1.289, s/b : 0.748
+Steps : 320, Gen Loss Total : 184.064, Loss Q : 11.560, Mel-Spec. Error : 1.291, s/b : 0.746
+Steps : 330, Gen Loss Total : 175.288, Loss Q : 10.785, Mel-Spec. Error : 1.261, s/b : 0.748
+Steps : 340, Gen Loss Total : 77.521, Loss Q : 0.467, Mel-Spec. Error : 1.357, s/b : 0.749
+Steps : 350, Gen Loss Total : 241.659, Loss Q : 17.057, Mel-Spec. Error : 1.324, s/b : 0.754
+Steps : 360, Gen Loss Total : 334.052, Loss Q : 26.696, Mel-Spec. Error : 1.246, s/b : 0.750
+Steps : 370, Gen Loss Total : 543.754, Loss Q : 46.948, Mel-Spec. Error : 1.352, s/b : 0.756
+Steps : 380, Gen Loss Total : 384.813, Loss Q : 31.248, Mel-Spec. Error : 1.359, s/b : 0.751
+Time taken for epoch 2 is 949 sec
+
+Epoch: 3
+Steps : 390, Gen Loss Total : 240.487, Loss Q : 17.150, Mel-Spec. Error : 1.270, s/b : 0.749
+Steps : 400, Gen Loss Total : 411.263, Loss Q : 34.124, Mel-Spec. Error : 1.321, s/b : 0.834
+Steps : 410, Gen Loss Total : 93.461, Loss Q : 2.284, Mel-Spec. Error : 1.333, s/b : 0.750
+Steps : 420, Gen Loss Total : 119.388, Loss Q : 5.495, Mel-Spec. Error : 1.196, s/b : 0.750
+Steps : 430, Gen Loss Total : 70.195, Loss Q : 0.137, Mel-Spec. Error : 1.262, s/b : 0.747
+Steps : 440, Gen Loss Total : 325.373, Loss Q : 25.380, Mel-Spec. Error : 1.348, s/b : 0.752
+Steps : 450, Gen Loss Total : 265.934, Loss Q : 19.706, Mel-Spec. Error : 1.285, s/b : 0.751
+Steps : 460, Gen Loss Total : 207.866, Loss Q : 14.140, Mel-Spec. Error : 1.243, s/b : 0.752
+Steps : 470, Gen Loss Total : 67.833, Loss Q : 0.263, Mel-Spec. Error : 1.241, s/b : 0.761
+Steps : 480, Gen Loss Total : 634.405, Loss Q : 55.936, Mel-Spec. Error : 1.372, s/b : 0.752
+Steps : 490, Gen Loss Total : 214.236, Loss Q : 14.079, Mel-Spec. Error : 1.380, s/b : 0.777
+Steps : 500, Gen Loss Total : 163.887, Loss Q : 9.824, Mel-Spec. Error : 1.243, s/b : 0.754
+Saving checkpoint to checkpoints/test_vastai/config_24k_240d.json/20250217/g_s-00000500_e-002
+Complete.
+Saving checkpoint to checkpoints/test_vastai/config_24k_240d.json/20250217/do_s-00000500_e-002
+Complete.
+Steps : 510, Gen Loss Total : 126.216, Loss Q : 5.915, Mel-Spec. Error : 1.233, s/b : 0.745
+Steps : 520, Gen Loss Total : 90.647, Loss Q : 1.992, Mel-Spec. Error : 1.333, s/b : 0.750
+Steps : 530, Gen Loss Total : 389.721, Loss Q : 31.374, Mel-Spec. Error : 1.399, s/b : 0.752
+Steps : 540, Gen Loss Total : 221.326, Loss Q : 15.275, Mel-Spec. Error : 1.278, s/b : 0.754
+Steps : 550, Gen Loss Total : 77.197, Loss Q : 0.569, Mel-Spec. Error : 1.331, s/b : 0.753
+Steps : 560, Gen Loss Total : 161.050, Loss Q : 9.509, Mel-Spec. Error : 1.199, s/b : 0.759
+Steps : 570, Gen Loss Total : 124.347, Loss Q : 5.590, Mel-Spec. Error : 1.261, s/b : 0.751
+Steps : 580, Gen Loss Total : 72.432, Loss Q : 0.596, Mel-Spec. Error : 1.249, s/b : 0.748
+Time taken for epoch 3 is 1008 sec
+
+Epoch: 4
+Steps : 590, Gen Loss Total : 73.133, Loss Q : 0.428, Mel-Spec. Error : 1.249, s/b : 0.754
+Steps : 600, Gen Loss Total : 500.404, Loss Q : 42.718, Mel-Spec. Error : 1.341, s/b : 0.752
+Steps : 610, Gen Loss Total : 104.067, Loss Q : 3.539, Mel-Spec. Error : 1.258, s/b : 0.751
+Steps : 620, Gen Loss Total : 82.044, Loss Q : 1.960, Mel-Spec. Error : 1.151, s/b : 0.751
+Steps : 630, Gen Loss Total : 111.659, Loss Q : 4.247, Mel-Spec. Error : 1.273, s/b : 0.758
+Steps : 640, Gen Loss Total : 109.974, Loss Q : 3.951, Mel-Spec. Error : 1.284, s/b : 0.751
+Steps : 650, Gen Loss Total : 79.195, Loss Q : 0.610, Mel-Spec. Error : 1.344, s/b : 0.753
+Steps : 660, Gen Loss Total : 88.143, Loss Q : 1.578, Mel-Spec. Error : 1.320, s/b : 0.754
+Steps : 670, Gen Loss Total : 90.072, Loss Q : 2.044, Mel-Spec. Error : 1.293, s/b : 0.753
+Steps : 680, Gen Loss Total : 114.796, Loss Q : 4.626, Mel-Spec. Error : 1.229, s/b : 0.745
+Steps : 690, Gen Loss Total : 122.269, Loss Q : 4.975, Mel-Spec. Error : 1.344, s/b : 0.753
+Steps : 700, Gen Loss Total : 86.709, Loss Q : 1.618, Mel-Spec. Error : 1.257, s/b : 0.748
+Steps : 710, Gen Loss Total : 120.112, Loss Q : 5.133, Mel-Spec. Error : 1.248, s/b : 0.749
+Steps : 720, Gen Loss Total : 99.745, Loss Q : 2.933, Mel-Spec. Error : 1.296, s/b : 0.749
+Steps : 730, Gen Loss Total : 79.616, Loss Q : 1.144, Mel-Spec. Error : 1.261, s/b : 0.948
+Steps : 740, Gen Loss Total : 84.967, Loss Q : 1.672, Mel-Spec. Error : 1.224, s/b : 0.749
+Steps : 750, Gen Loss Total : 138.221, Loss Q : 6.666, Mel-Spec. Error : 1.280, s/b : 0.752
+Steps : 760, Gen Loss Total : 96.943, Loss Q : 2.550, Mel-Spec. Error : 1.298, s/b : 0.754
+Steps : 770, Gen Loss Total : 102.669, Loss Q : 3.805, Mel-Spec. Error : 1.183, s/b : 0.754
+Time taken for epoch 4 is 963 sec
+
+Epoch: 5
+Steps : 780, Gen Loss Total : 82.595, Loss Q : 1.547, Mel-Spec. Error : 1.202, s/b : 0.756
+Steps : 790, Gen Loss Total : 91.622, Loss Q : 2.373, Mel-Spec. Error : 1.217, s/b : 0.749
+Steps : 800, Gen Loss Total : 96.286, Loss Q : 3.076, Mel-Spec. Error : 1.166, s/b : 0.754
+Saving checkpoint to checkpoints/test_vastai/config_24k_240d.json/20250217/g_s-00000800_e-004
+Complete.
+Saving checkpoint to checkpoints/test_vastai/config_24k_240d.json/20250217/do_s-00000800_e-004
+Complete.
+Steps : 810, Gen Loss Total : 80.797, Loss Q : 1.497, Mel-Spec. Error : 1.185, s/b : 0.745
+Steps : 820, Gen Loss Total : 124.246, Loss Q : 5.844, Mel-Spec. Error : 1.185, s/b : 0.751
+Steps : 830, Gen Loss Total : 98.458, Loss Q : 2.887, Mel-Spec. Error : 1.262, s/b : 0.777
+Steps : 840, Gen Loss Total : 85.846, Loss Q : 1.794, Mel-Spec. Error : 1.210, s/b : 0.747
+Steps : 850, Gen Loss Total : 144.599, Loss Q : 7.215, Mel-Spec. Error : 1.327, s/b : 0.753
+Steps : 860, Gen Loss Total : 95.167, Loss Q : 2.785, Mel-Spec. Error : 1.190, s/b : 0.752
+Steps : 870, Gen Loss Total : 100.114, Loss Q : 3.582, Mel-Spec. Error : 1.160, s/b : 0.753
+Steps : 880, Gen Loss Total : 83.968, Loss Q : 1.885, Mel-Spec. Error : 1.154, s/b : 0.758
+Steps : 890, Gen Loss Total : 73.704, Loss Q : 0.971, Mel-Spec. Error : 1.165, s/b : 0.755
+Steps : 900, Gen Loss Total : 72.456, Loss Q : 1.219, Mel-Spec. Error : 1.077, s/b : 0.764
+Saving checkpoint to checkpoints/test_vastai/config_24k_240d.json/20250217/g_s-00000900_e-004
+Complete.
+Saving checkpoint to checkpoints/test_vastai/config_24k_240d.json/20250217/do_s-00000900_e-004
+Complete.
+Steps : 910, Gen Loss Total : 84.102, Loss Q : 1.803, Mel-Spec. Error : 1.178, s/b : 0.746
+Steps : 920, Gen Loss Total : 134.121, Loss Q : 6.831, Mel-Spec. Error : 1.205, s/b : 0.745
+Steps : 930, Gen Loss Total : 95.679, Loss Q : 3.068, Mel-Spec. Error : 1.149, s/b : 0.752
+Steps : 940, Gen Loss Total : 86.404, Loss Q : 2.303, Mel-Spec. Error : 1.098, s/b : 0.754
+Steps : 950, Gen Loss Total : 119.766, Loss Q : 5.455, Mel-Spec. Error : 1.147, s/b : 0.755
+Steps : 960, Gen Loss Total : 78.810, Loss Q : 1.141, Mel-Spec. Error : 1.231, s/b : 0.756
+Time taken for epoch 5 is 984 sec
+
+Epoch: 6
+Steps : 970, Gen Loss Total : 140.927, Loss Q : 7.296, Mel-Spec. Error : 1.208, s/b : 0.821
+Steps : 980, Gen Loss Total : 74.865, Loss Q : 1.243, Mel-Spec. Error : 1.105, s/b : 0.749
+Steps : 990, Gen Loss Total : 78.757, Loss Q : 1.570, Mel-Spec. Error : 1.124, s/b : 0.756
+Steps : 1000, Gen Loss Total : 86.986, Loss Q : 2.572, Mel-Spec. Error : 1.094, s/b : 0.752
+Saving checkpoint to checkpoints/test_vastai/config_24k_240d.json/20250217/g_s-00001000_e-005
+Complete.
+Saving checkpoint to checkpoints/test_vastai/config_24k_240d.json/20250217/do_s-00001000_e-005
+Complete.
+Steps : 1010, Gen Loss Total : 134.071, Loss Q : 7.377, Mel-Spec. Error : 1.066, s/b : 0.748
+Steps : 1020, Gen Loss Total : 91.942, Loss Q : 3.158, Mel-Spec. Error : 1.065, s/b : 0.748
+Steps : 1030, Gen Loss Total : 75.769, Loss Q : 1.450, Mel-Spec. Error : 1.093, s/b : 0.752
+Steps : 1040, Gen Loss Total : 106.625, Loss Q : 4.836, Mel-Spec. Error : 1.061, s/b : 0.748
+Steps : 1050, Gen Loss Total : 82.167, Loss Q : 2.170, Mel-Spec. Error : 1.055, s/b : 0.749
+Steps : 1060, Gen Loss Total : 100.853, Loss Q : 3.639, Mel-Spec. Error : 1.166, s/b : 0.755
+Steps : 1070, Gen Loss Total : 88.910, Loss Q : 2.973, Mel-Spec. Error : 1.037, s/b : 0.755
+Steps : 1080, Gen Loss Total : 86.318, Loss Q : 2.540, Mel-Spec. Error : 1.087, s/b : 0.759
+Steps : 1090, Gen Loss Total : 90.717, Loss Q : 3.275, Mel-Spec. Error : 1.028, s/b : 0.756
+Steps : 1100, Gen Loss Total : 104.643, Loss Q : 4.233, Mel-Spec. Error : 1.098, s/b : 0.751
+Steps : 1110, Gen Loss Total : 86.906, Loss Q : 2.943, Mel-Spec. Error : 0.989, s/b : 0.750
+Steps : 1120, Gen Loss Total : 80.667, Loss Q : 2.269, Mel-Spec. Error : 1.018, s/b : 0.751
+Steps : 1130, Gen Loss Total : 106.987, Loss Q : 4.561, Mel-Spec. Error : 1.113, s/b : 0.753
+Steps : 1140, Gen Loss Total : 108.861, Loss Q : 4.932, Mel-Spec. Error : 1.016, s/b : 0.748
+Steps : 1150, Gen Loss Total : 91.346, Loss Q : 3.124, Mel-Spec. Error : 1.074, s/b : 0.750
+Steps : 1160, Gen Loss Total : 77.794, Loss Q : 1.839, Mel-Spec. Error : 1.047, s/b : 0.751
+Time taken for epoch 6 is 964 sec
+
+Epoch: 7
+Steps : 1170, Gen Loss Total : 115.742, Loss Q : 5.231, Mel-Spec. Error : 1.149, s/b : 0.751
+Steps : 1180, Gen Loss Total : 102.787, Loss Q : 4.295, Mel-Spec. Error : 1.067, s/b : 0.748
+Steps : 1190, Gen Loss Total : 109.010, Loss Q : 4.676, Mel-Spec. Error : 1.084, s/b : 0.753
+Steps : 1200, Gen Loss Total : 133.159, Loss Q : 7.297, Mel-Spec. Error : 1.054, s/b : 0.755
+Saving checkpoint to checkpoints/test_vastai/config_24k_240d.json/20250217/g_s-00001200_e-006
+Complete.
+Saving checkpoint to checkpoints/test_vastai/config_24k_240d.json/20250217/do_s-00001200_e-006
+Complete.
+Steps : 1210, Gen Loss Total : 85.800, Loss Q : 2.494, Mel-Spec. Error : 1.056, s/b : 0.747
+Steps : 1220, Gen Loss Total : 95.656, Loss Q : 3.263, Mel-Spec. Error : 1.093, s/b : 0.751
+Steps : 1230, Gen Loss Total : 97.160, Loss Q : 3.400, Mel-Spec. Error : 1.119, s/b : 0.755
+Steps : 1240, Gen Loss Total : 79.649, Loss Q : 1.196, Mel-Spec. Error : 1.204, s/b : 0.749
+Steps : 1250, Gen Loss Total : 91.522, Loss Q : 3.022, Mel-Spec. Error : 1.083, s/b : 0.753
+Steps : 1260, Gen Loss Total : 127.357, Loss Q : 6.682, Mel-Spec. Error : 1.068, s/b : 0.754
+Steps : 1270, Gen Loss Total : 122.508, Loss Q : 6.362, Mel-Spec. Error : 1.021, s/b : 0.751
+Steps : 1280, Gen Loss Total : 107.827, Loss Q : 4.671, Mel-Spec. Error : 1.054, s/b : 0.747
+Steps : 1290, Gen Loss Total : 166.167, Loss Q : 10.725, Mel-Spec. Error : 1.023, s/b : 0.754
+Steps : 1300, Gen Loss Total : 123.984, Loss Q : 6.574, Mel-Spec. Error : 1.010, s/b : 0.755
+Saving checkpoint to checkpoints/test_vastai/config_24k_240d.json/20250217/g_s-00001300_e-006
+Complete.
+Saving checkpoint to checkpoints/test_vastai/config_24k_240d.json/20250217/do_s-00001300_e-006
+Complete.
+Steps : 1310, Gen Loss Total : 151.134, Loss Q : 9.225, Mel-Spec. Error : 1.015, s/b : 0.751
+Steps : 1320, Gen Loss Total : 103.191, Loss Q : 3.963, Mel-Spec. Error : 1.110, s/b : 0.751
+Steps : 1330, Gen Loss Total : 120.459, Loss Q : 6.340, Mel-Spec. Error : 0.982, s/b : 0.749
+Steps : 1340, Gen Loss Total : 135.254, Loss Q : 7.675, Mel-Spec. Error : 1.019, s/b : 0.752
+Steps : 1350, Gen Loss Total : 94.037, Loss Q : 3.665, Mel-Spec. Error : 0.999, s/b : 0.752
+Time taken for epoch 7 is 951 sec
+
+Epoch: 8
+Steps : 1360, Gen Loss Total : 108.101, Loss Q : 4.926, Mel-Spec. Error : 1.021, s/b : 0.750
+Steps : 1370, Gen Loss Total : 134.093, Loss Q : 7.675, Mel-Spec. Error : 1.000, s/b : 0.752
+Steps : 1380, Gen Loss Total : 147.923, Loss Q : 8.667, Mel-Spec. Error : 1.066, s/b : 0.758
+Steps : 1390, Gen Loss Total : 77.332, Loss Q : 1.868, Mel-Spec. Error : 1.025, s/b : 0.751
+Steps : 1400, Gen Loss Total : 76.987, Loss Q : 1.915, Mel-Spec. Error : 1.017, s/b : 0.760
+Saving checkpoint to checkpoints/test_vastai/config_24k_240d.json/20250217/g_s-00001400_e-007
+Complete.
+Saving checkpoint to checkpoints/test_vastai/config_24k_240d.json/20250217/do_s-00001400_e-007
+Complete.
+Steps : 1410, Gen Loss Total : 131.741, Loss Q : 7.054, Mel-Spec. Error : 1.067, s/b : 0.744
+Steps : 1420, Gen Loss Total : 77.117, Loss Q : 2.074, Mel-Spec. Error : 0.979, s/b : 0.751
+Steps : 1430, Gen Loss Total : 113.130, Loss Q : 5.333, Mel-Spec. Error : 1.006, s/b : 0.752
+Steps : 1440, Gen Loss Total : 108.091, Loss Q : 4.966, Mel-Spec. Error : 1.012, s/b : 0.753
+Steps : 1450, Gen Loss Total : 168.010, Loss Q : 10.656, Mel-Spec. Error : 1.077, s/b : 0.752
+Steps : 1460, Gen Loss Total : 122.528, Loss Q : 5.791, Mel-Spec. Error : 1.126, s/b : 0.754
+Steps : 1470, Gen Loss Total : 92.535, Loss Q : 3.475, Mel-Spec. Error : 1.015, s/b : 0.757
+Steps : 1480, Gen Loss Total : 103.609, Loss Q : 4.430, Mel-Spec. Error : 1.035, s/b : 0.755
+Steps : 1490, Gen Loss Total : 85.769, Loss Q : 2.803, Mel-Spec. Error : 1.005, s/b : 0.754
+Steps : 1500, Gen Loss Total : 87.073, Loss Q : 2.415, Mel-Spec. Error : 1.082, s/b : 0.752
+Steps : 1510, Gen Loss Total : 75.013, Loss Q : 1.798, Mel-Spec. Error : 0.993, s/b : 0.750
+Steps : 1520, Gen Loss Total : 68.557, Loss Q : 0.922, Mel-Spec. Error : 1.039, s/b : 0.751
+Steps : 1530, Gen Loss Total : 77.438, Loss Q : 1.949, Mel-Spec. Error : 0.984, s/b : 0.751
+Steps : 1540, Gen Loss Total : 77.065, Loss Q : 2.042, Mel-Spec. Error : 0.986, s/b : 0.752
+Steps : 1550, Gen Loss Total : 112.828, Loss Q : 5.431, Mel-Spec. Error : 0.995, s/b : 0.753
+Time taken for epoch 8 is 950 sec
+
+Epoch: 9
+Steps : 1560, Gen Loss Total : 86.264, Loss Q : 3.107, Mel-Spec. Error : 0.933, s/b : 0.751
+Steps : 1570, Gen Loss Total : 120.004, Loss Q : 6.481, Mel-Spec. Error : 0.938, s/b : 0.752
+Steps : 1580, Gen Loss Total : 103.738, Loss Q : 4.742, Mel-Spec. Error : 0.981, s/b : 0.751
+Steps : 1590, Gen Loss Total : 139.884, Loss Q : 8.315, Mel-Spec. Error : 0.961, s/b : 0.754
+Steps : 1600, Gen Loss Total : 68.076, Loss Q : 1.137, Mel-Spec. Error : 0.932, s/b : 0.750
+Saving checkpoint to checkpoints/test_vastai/config_24k_240d.json/20250217/g_s-00001600_e-008
+Complete.
+Saving checkpoint to checkpoints/test_vastai/config_24k_240d.json/20250217/do_s-00001600_e-008
+Complete.
+Steps : 1610, Gen Loss Total : 70.668, Loss Q : 1.292, Mel-Spec. Error : 0.990, s/b : 0.748
+Steps : 1620, Gen Loss Total : 115.391, Loss Q : 5.739, Mel-Spec. Error : 0.985, s/b : 0.752
+Steps : 1630, Gen Loss Total : 68.062, Loss Q : 0.989, Mel-Spec. Error : 0.997, s/b : 0.756
+Steps : 1640, Gen Loss Total : 121.518, Loss Q : 6.518, Mel-Spec. Error : 0.940, s/b : 0.754
+Steps : 1650, Gen Loss Total : 194.616, Loss Q : 13.533, Mel-Spec. Error : 0.986, s/b : 0.758
+Steps : 1660, Gen Loss Total : 110.867, Loss Q : 5.347, Mel-Spec. Error : 0.975, s/b : 0.752
+Steps : 1670, Gen Loss Total : 79.530, Loss Q : 2.203, Mel-Spec. Error : 0.978, s/b : 0.755
+Steps : 1680, Gen Loss Total : 166.944, Loss Q : 10.727, Mel-Spec. Error : 0.998, s/b : 0.752
+Steps : 1690, Gen Loss Total : 89.646, Loss Q : 3.520, Mel-Spec. Error : 0.932, s/b : 0.751
+Steps : 1700, Gen Loss Total : 92.742, Loss Q : 3.859, Mel-Spec. Error : 0.924, s/b : 0.754
+Steps : 1710, Gen Loss Total : 68.008, Loss Q : 1.139, Mel-Spec. Error : 0.951, s/b : 0.751
+Steps : 1720, Gen Loss Total : 102.319, Loss Q : 4.446, Mel-Spec. Error : 0.943, s/b : 0.753
+Steps : 1730, Gen Loss Total : 73.780, Loss Q : 1.646, Mel-Spec. Error : 0.977, s/b : 0.751
+Steps : 1740, Gen Loss Total : 68.577, Loss Q : 1.565, Mel-Spec. Error : 0.884, s/b : 0.754
+Time taken for epoch 9 is 954 sec
+
+Epoch: 10
+Steps : 1750, Gen Loss Total : 69.032, Loss Q : 1.191, Mel-Spec. Error : 0.964, s/b : 0.752
+Steps : 1760, Gen Loss Total : 79.345, Loss Q : 2.317, Mel-Spec. Error : 0.947, s/b : 0.751
+Steps : 1770, Gen Loss Total : 81.635, Loss Q : 2.447, Mel-Spec. Error : 0.975, s/b : 0.751
+Steps : 1780, Gen Loss Total : 69.836, Loss Q : 1.548, Mel-Spec. Error : 0.909, s/b : 0.755
+Steps : 1790, Gen Loss Total : 100.509, Loss Q : 4.284, Mel-Spec. Error : 0.963, s/b : 0.755
+Steps : 1800, Gen Loss Total : 68.575, Loss Q : 1.115, Mel-Spec. Error : 0.963, s/b : 0.754
+Steps : 1810, Gen Loss Total : 108.861, Loss Q : 5.347, Mel-Spec. Error : 0.946, s/b : 0.747
+Steps : 1820, Gen Loss Total : 98.146, Loss Q : 3.838, Mel-Spec. Error : 0.980, s/b : 0.751
+Steps : 1830, Gen Loss Total : 91.306, Loss Q : 3.575, Mel-Spec. Error : 0.924, s/b : 0.757
+Steps : 1840, Gen Loss Total : 69.181, Loss Q : 1.335, Mel-Spec. Error : 0.932, s/b : 0.753
+Steps : 1850, Gen Loss Total : 74.245, Loss Q : 1.772, Mel-Spec. Error : 0.938, s/b : 0.755
+Steps : 1860, Gen Loss Total : 74.064, Loss Q : 2.081, Mel-Spec. Error : 0.912, s/b : 0.756
+Steps : 1870, Gen Loss Total : 63.867, Loss Q : 1.118, Mel-Spec. Error : 0.876, s/b : 0.757
+Steps : 1880, Gen Loss Total : 53.529, Loss Q : 0.385, Mel-Spec. Error : 0.844, s/b : 0.756
+Steps : 1890, Gen Loss Total : 75.760, Loss Q : 2.150, Mel-Spec. Error : 0.934, s/b : 0.755
+Steps : 1900, Gen Loss Total : 107.811, Loss Q : 5.400, Mel-Spec. Error : 0.922, s/b : 0.752
+Saving checkpoint to checkpoints/test_vastai/config_24k_240d.json/20250217/g_s-00001900_e-009
+Complete.
+Saving checkpoint to checkpoints/test_vastai/config_24k_240d.json/20250217/do_s-00001900_e-009
+Complete.
+Steps : 1910, Gen Loss Total : 124.633, Loss Q : 6.907, Mel-Spec. Error : 0.907, s/b : 0.746
+Steps : 1920, Gen Loss Total : 109.113, Loss Q : 5.551, Mel-Spec. Error : 0.879, s/b : 0.746
+Steps : 1930, Gen Loss Total : 73.128, Loss Q : 1.892, Mel-Spec. Error : 0.903, s/b : 0.752
+Time taken for epoch 10 is 966 sec
+
+Total number of steps: 1940
+Training Process Finished!
