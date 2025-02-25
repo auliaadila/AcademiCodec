@@ -8,7 +8,7 @@ cd $DATASET_DIR
 echo "📥 Downloading LibriTTS dataset..."
 # Download all parts of LibriTTS
 wget -c https://www.openslr.org/resources/60/train-clean-100.tar.gz
-# wget -c https://www.openslr.org/resources/60/train-clean-360.tar.gz
+wget -c https://www.openslr.org/resources/60/train-clean-360.tar.gz
 wget -c https://www.openslr.org/resources/60/dev-clean.tar.gz
 wget -c https://www.openslr.org/resources/60/test-clean.tar.gz
 

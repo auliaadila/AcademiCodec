@@ -4,6 +4,8 @@ import shutil
 import argparse
 import soundfile as sf
 
+SEED_VALUE = 42  # Fixed seed for reproducibility
+
 def get_audio_duration(file_path):
     """Returns the duration of a WAV file in seconds."""
     with sf.SoundFile(file_path) as f:
@@ -15,7 +17,7 @@ def select_random_wavs(source_folder, target_folder, total_duration_hours, is_ra
     and copies them to target_folder.
     """
     total_duration = total_duration_hours * 3600  # Convert hours to seconds
-    wav_files = [os.path.join(source_folder, f) for f in os.listdir(source_folder) if f.endswith(".wav")]
+    wav_files = sorted[os.path.join(source_folder, f) for f in os.listdir(source_folder) if f.endswith(".wav")]
     
     if not wav_files:
         print("❌ No WAV files found in the source folder.")
@@ -25,6 +27,7 @@ def select_random_wavs(source_folder, target_folder, total_duration_hours, is_ra
     selected_duration = 0
     
     if (is_random):
+        random.seed(SEED_VALUE)
         random.shuffle(wav_files)  # Shuffle to randomize selection
 
     for wav_file in wav_files:
